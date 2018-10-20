@@ -6,15 +6,19 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
+const expressLayouts = require('express-ejs-layouts');
 
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
+const profileRouter = require('./routes/profile');
 
 const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.use(expressLayouts);
+app.set('layout', 'layouts/layout');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -37,6 +41,7 @@ app.use(session({
 
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
+app.use('/profile', profileRouter);
 
 mongoose.connect('mongodb://localhost/artyApp', { useNewUrlParser: true })
   .then(() => {
