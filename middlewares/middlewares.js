@@ -33,7 +33,13 @@ function requireUser (req, res, next) {
   }
 }
 
-// function alreadyLoggedIn (req, res, next) {
+function alreadyLoggedIn (req, res, next) {
+  if (req.session.currentUser) {
+    return res.redirect('/profile');
+  } else {
+    next();
+  }
+}
 
 //   User.findOne({username})
 //     .then(userFound => {
@@ -57,5 +63,6 @@ function requireUser (req, res, next) {
 module.exports = {
   requireFields,
   userExists,
-  requireUser
+  requireUser,
+  alreadyLoggedIn
 };

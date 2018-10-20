@@ -53,8 +53,14 @@ p {
 }
 
 .section {
-  margin-bottom: 20px;
-  padding-top: 20px;
+  padding: 30px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 728px;
+    margin: 0 auto;
+  }
 }
 
 @media (min-width: 768px) {
@@ -66,18 +72,6 @@ p {
 
 /* ---- components ---- */
 
-.button {
-  width: 100%;
-  background-color: blue;
-  color: #fff;
-  border: 1px solid #fff
-}
-
-.button-alt {
-  color: blue;
-  background-color: #fff;
-}
-
 .submit-button {
   padding: 15px;
   background-color: #283c4f;
@@ -85,10 +79,13 @@ p {
   font-size: 16px;
   border-radius: 10px;
   width: 100px;
-  margin: 20px;
+  margin: 10px 0;
 }
 
-/* ---- section ---- */
+.submit-button:hover {
+  background-color: #71f1fb;
+  color: #283c4f;
+}
 
 /* ---- navbar ---- */
 
@@ -116,7 +113,7 @@ ul.signup-and-login {
 }
 
 .signup-and-login li a:hover {
-  color: lightgrey;
+  color: #71f1fb;
 }
 
 /* ---- signup form ---- */
@@ -127,7 +124,13 @@ ul.signup-and-login {
 }
 
 .signup-form div {
-  padding: 10px 20px;
+  padding: 10px 0;
+}
+
+/* ---- login form ---- */
+
+a.login-link {
+  text-decoration: none;
 }
 
 /* ---- footer ---- */
@@ -135,4 +138,5 @@ footer.footer {
   background-color: #283c4f;
   padding: 20px 50px;
   color: white;
+  font-weight: 100;
 }

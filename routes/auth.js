@@ -17,7 +17,7 @@ router.get('/login', /* middlewares.alreadyLoggedIn, */ (req, res, next) => {
   res.render('auth/login');
 });
 
-router.post('/login', middlewares.requireFields, (req, res, next) => {
+router.post('/login', middlewares.alreadyLoggedIn, middlewares.requireFields, (req, res, next) => {
   const { username, password } = req.body;
 
   User.findOne({ username })
@@ -27,11 +27,14 @@ router.post('/login', middlewares.requireFields, (req, res, next) => {
         // Save the login in the session!
         console.log(req.session);
         req.session.currentUser = userFound.username;
-        res.redirect('/auth');
+        res.redirect('/profile');
       } else {
         console.log('Password erroneo');
         res.redirect('/auth/login', { error: 'Username or password are incorrect.' });
       }
+    })
+    .catch((error) => {
+      next(error);
     });
 });
 
@@ -49,15 +52,15 @@ router.post('/signup', middlewares.requireFields, middlewares.userExists, (req, 
 
   user.password = hashedPassword;
 
-  // let newUser = new User ({user});
-  //   newUser.save(err => {
-  //     if (err) {
-  //       //handle error
-  //       return console.log(err);
-  //     }
-  //     // user has been saved
-  //     console.log(user);
-  //   });
+  // let newUser = new User({ user });
+  // newUser.save(err => {
+  //   if (err) {
+  //     // handle error
+  //     return console.log(err);
+  //   }
+  //   // user has been saved
+  //   console.log(user);
+  // });
 
   User.create(user)
     .then((user) => {
