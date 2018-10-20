@@ -12,13 +12,13 @@
   
   <form class="signup-form" action="/auth/signup" method='post'>
     <div><label for="username">Username: </label>
-    <input type='text' size="20" name="username"></div>
+    <input type='text' size="20" name="username" required></div>
     <div><label for="password">Password: </label>
-    <input type='password' size="20" name="password"></div>
+    <input type='password' size="20" name="password" required></div>
     <div><label for="artist">Artist: </label>
-    <input type="checkbox" checked id="artist" name="artist" value="artist"></div>
+    <input type="radio" id="artist" name="artist" value="artist" required></div>
     <div><label for="space-owner">Space owner: </label>
-    <input type="checkbox" checked id="space-owner" name="space-owner" value="space-owner"></div>
+    <input type="radio" id="space-owner" name="artist" value="space-owner"></div>
     <input class="submit-button" type="submit" value="send">
   </form>
 

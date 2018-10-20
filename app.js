@@ -10,6 +10,7 @@ const expressLayouts = require('express-ejs-layouts');
 
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
+const profileRouter = require('./routes/profile');
 
 const app = express();
 
@@ -40,6 +41,7 @@ app.use(session({
 
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
+app.use('/profile', profileRouter);
 
 mongoose.connect('mongodb://localhost/artyApp')
   .then(() => {

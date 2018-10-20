@@ -27,10 +27,10 @@ router.post('/login', middlewares.requireFields, (req, res, next) => {
         // Save the login in the session!
         console.log(req.session);
         req.session.currentUser = userFound.username;
-        res.redirect('/users');
+        res.redirect('/auth');
       } else {
         console.log('Password erroneo');
-        res.redirect('/users/login', { error: 'Username or password are incorrect.' });
+        res.redirect('/auth/login', { error: 'Username or password are incorrect.' });
       }
     });
 });
@@ -49,9 +49,20 @@ router.post('/signup', middlewares.requireFields, middlewares.userExists, (req, 
 
   user.password = hashedPassword;
 
+  // let newUser = new User ({user});
+  //   newUser.save(err => {
+  //     if (err) {
+  //       //handle error
+  //       return console.log(err);
+  //     }
+  //     // user has been saved
+  //     console.log(user);
+  //   });
+
   User.create(user)
-    .then(() => {
-      res.redirect('/users');
+    .then((user) => {
+      req.session.currentUser = user;
+      res.redirect('/profile');
     })
     .catch(() => {
       next(error);
