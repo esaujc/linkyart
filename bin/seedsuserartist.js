@@ -10,8 +10,8 @@ const hashedPassword = bcrypt.hashSync('1234', salt);
 
 const users = [
   {
-    is_artist: false,
-    username: 'user01',
+    is_artist: true,
+    username: 'user07',
     password: hashedPassword,
     name: 'Jhon',
     email: 'jhon@jur.com',
@@ -19,8 +19,8 @@ const users = [
     homepage: 'https://github.com/esaujc/linkyart'
   },
   {
-    is_artist: false,
-    username: 'user02',
+    is_artist: true,
+    username: 'user08',
     password: hashedPassword,
     name: 'Ann',
     email: 'ann@jur.com',
@@ -28,8 +28,8 @@ const users = [
     homepage: 'https://github.com/esaujc/linkyart'
   },
   {
-    is_artist: false,
-    username: 'user03',
+    is_artist: true,
+    username: 'user09',
     password: hashedPassword,
     name: 'Raul',
     email: 'raul@jur.com',
@@ -37,8 +37,8 @@ const users = [
     homepage: 'https://github.com/esaujc/linkyart'
   },
   {
-    is_artist: false,
-    username: 'user04',
+    is_artist: true,
+    username: 'user10',
     password: hashedPassword,
     name: 'Raul',
     email: 'raul@jur.com',
@@ -46,8 +46,8 @@ const users = [
     homepage: 'https://github.com/esaujc/linkyart'
   },
   {
-    is_artist: false,
-    username: 'user05',
+    is_artist: true,
+    username: 'user11',
     password: hashedPassword,
     name: 'Peter',
     email: 'peter@jur.com',
@@ -55,8 +55,8 @@ const users = [
     homepage: 'https://github.com/esaujc/linkyart'
   },
   {
-    is_artist: false,
-    username: 'user06',
+    is_artist: true,
+    username: 'user12',
     password: hashedPassword,
     name: 'Maria',
     email: 'maria@jur.com',
