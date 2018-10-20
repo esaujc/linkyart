@@ -178,7 +178,20 @@ homepage: String
 
 ```
 ## Task list
-
+1. Installation and configuration.
+2. Create basic files.
+3. Create homepage and links.
+4. Create models. Create seeds.
+5. Create routes files. 
+6. Create login and signup pages. 
+7. Connect homepage, login and signup.
+8. Create profile page.
+9. Create messages page.
+10. Create artists - artists/:id page.
+11. Create spaces - spaces/:id page.
+12. Connect profile, artists and spaces pages.
+13. 
+XX. Add error pages.
 
 ## Links
 
