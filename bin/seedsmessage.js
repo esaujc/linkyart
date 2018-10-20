@@ -19,7 +19,7 @@ const messages = [
 
 ];
 
-mongoose.connect('mongodb://localhost/linkyartApp', { useNewUrlParser: true })
+mongoose.connect('mongodb://localhost/artyApp', { useNewUrlParser: true })
   .then(() => {
     console.log('Connected to Mongo!');
     Message.create(messages)
