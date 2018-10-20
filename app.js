@@ -38,7 +38,7 @@ app.use(session({
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 
-mongoose.connect('mongodb://localhost/artyApp')
+mongoose.connect('mongodb://localhost/artyApp', { useNewUrlParser: true })
   .then(() => {
     console.log('Connected to Mongo!');
   })

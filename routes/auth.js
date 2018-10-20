@@ -4,12 +4,11 @@ const User = require('../Models/User');
 const middlewares = require('../middlewares/middlewares');
 
 // npm install bcrypt
-const bcrypt     = require('bcrypt');
+const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
-
 /* GET index home page */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   res.render('index');
 });
 
@@ -17,7 +16,7 @@ router.get('/', function(req, res, next) {
 router.get('/login', (req, res, next) => {
   // res.redirect('/profile');
   res.render('auth/login');
-})
+});
 
 // router.post('/login', middlewares.requireFields, (req, res, next) => {
 //   const {username, password} = req.body;
@@ -40,7 +39,7 @@ router.get('/login', (req, res, next) => {
 /* GET signup page */
 router.get('/signup', (req, res, next) => {
   res.render('auth/signup');
-})
+});
 
 // router.post('/signup', middlewares.requireFields, middlewares.userExists, (req, res, next) => {
 //   let user = req.body;
@@ -61,7 +60,6 @@ router.get('/signup', (req, res, next) => {
 //   .catch(next);
 // })
 
-
 // GET /auth/login
 // redirects to /user if user logged in
 // renders the login form (with flash msg)
@@ -80,6 +78,5 @@ router.get('/signup', (req, res, next) => {
 // username
 // password
 // artist: true/false
-
 
 module.exports = router;
