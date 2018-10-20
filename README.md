@@ -67,24 +67,27 @@ Homepage
     - username
     - password
     - artist: true/false
--------------------------------------------
-- GET /user
-  - renders the User information.
-  - redirects to /login if user is anonymous.
-- POST /user/
-  - redirects to /login if user is anonymous.
-  - redirects to /user/messages or
-    redirects to /user/artist or
-    redirects to /user/space
+
+- POST /auth/logout
+  - redirects to /
+  - body: (empty)
 
 -------------------------------------------
-- GET /user/artist
+- GET /profile
+  - renders the User information.
+  - redirects to /login if user is anonymous.
+- POST /profile/
+  - redirects to /login if user is anonymous.
+  - if user is register we show the updated info
+
+-------------------------------------------
+- GET /artist
   - renders the Artist list.
   - redirects to /login if user is anonymous.
-- GET /user/artist/:id
+- GET /artist/:id
   - renders the Artist information including contact button.
   - redirects to /login if user is anonymous.
-- POST /user/artist/:id
+- POST /artist/:id
   - redirects to /login if user is anonymous.
   - Save message between User and Space in Message collection.
   - body Collection Messages: 
@@ -93,13 +96,13 @@ Homepage
     - date
   - redirects to /artist after send the message.
 --------------------------------------------------
-- GET /user/space
+- GET /space
   - renders the Space list.
   - redirects to /login if user is anonymous.
-- GET /user/space/:id
+- GET /space/:id
   - renders the Space information including contact button.
   - redirects to /login if user is anonymous.
-- POST /user/space/:id
+- POST /space/:id
   - redirects to /login if user is anonymous.
   - Save message between User and Space in Message collection.
   - body Collection Messages: 
@@ -108,12 +111,14 @@ Homepage
     - date
   - redirects to /artist after send the message.
 -----------------------------------------------------
-- GET /user/messages
+- GET /profile/messages
   - renders the list of sent requests.
   - renders the list of received requests.
   - User can delete any request.
   - redirects to /login if user is anonymous.
-- POST /user/messages
+------------------------------------------------------
+backlog
+- POST /profile/messages
   - takes the messages data from the data base (Message collection). 
   - redirects to /login if user is anonymous.
 ---------------------------------------------------------
@@ -124,12 +129,7 @@ Homepage
     - message._id
     - message.sender
     - message.space(owner)
-- GET /user/profile
-  - renders the User profile.
-  - redirects to /login if user is anonymous.
-- POST /auth/logout
-  - redirects to /
-  - body: (empty)
+
 
 ## Models
 
