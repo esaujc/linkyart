@@ -73,6 +73,16 @@ p {
   background-color: #fff;
 }
 
+.submit-button {
+  padding: 15px;
+  background-color: #283c4f;
+  color: white;
+  font-size: 16px;
+  border-radius: 10px;
+  width: 100px;
+  margin: 20px;
+}
+
 /* ---- section ---- */
 
 /* ---- navbar ---- */
@@ -102,4 +112,22 @@ ul.signup-and-login {
 
 .signup-and-login li a:hover {
   color: lightgrey;
+}
+
+/* ---- signup form ---- */
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-form div {
+  padding: 10px 20px;
+}
+
+/* ---- footer ---- */
+footer.footer {
+  background-color: #283c4f;
+  padding: 20px 50px;
+  color: white;
 }
