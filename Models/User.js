@@ -1,12 +1,15 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const ObjectId = Schema.Types.ObjectId;
+// const ObjectId = Schema.Types.ObjectId;
 
 const userSchema = new Schema({
+  is_artist: Boolean,
   username: String,
   password: String,
-  artist: Boolean,
-  space: Boolean
+  name: String,
+  email: String,
+  telephone: String,
+  homepage: String
 });
 
 const User = mongoose.model('User', userSchema);
