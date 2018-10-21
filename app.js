@@ -13,9 +13,17 @@ const authRouter = require('./routes/auth');
 const profileRouter = require('./routes/profile');
 const artistsRouter = require('./routes/artists');
 const spacesRouter = require('./routes/spaces');
-const messagesRouter = require('./routes/messages');
+// const messagesRouter = require('./routes/messages');
 
 const app = express();
+
+mongoose.connect('mongodb://localhost/artyApp', { useNewUrlParser: true })
+  .then(() => {
+    console.log('Connected to Mongo!');
+  })
+  .catch(err => {
+    console.error('Error connecting to mongo', err);
+  });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -41,21 +49,16 @@ app.use(session({
     maxAge: 24 * 60 * 60 * 1000
   }
 }));
+app.use((req, res, next) => {
+  app.locals.currentUser = req.session.currentUser;
+  next();
+});
 
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/profile', profileRouter);
 app.use('/artists', artistsRouter);
 app.use('/spaces', spacesRouter);
-app.use('/messages', messagesRouter);
-
-mongoose.connect('mongodb://localhost/artyApp', { useNewUrlParser: true })
-  .then(() => {
-    console.log('Connected to Mongo!');
-  })
-  .catch(err => {
-    console.error('Error connecting to mongo', err);
-  });
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

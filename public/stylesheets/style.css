@@ -24,6 +24,7 @@ body {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 147%;
+  background-image: url('#');
 }
 
 h1 {
@@ -50,6 +51,9 @@ p {
 
 .container {
   padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .section {
@@ -61,6 +65,28 @@ p {
     max-width: 728px;
     margin: 0 auto;
   }
+
+  img.logo {
+    display: flex;
+    align-items: center;
+    width: 150px;
+  }
+
+  nav.navbar {
+    padding: 0 20px;
+  }
+
+  ul.signup-and-login {
+    flex-direction: column;
+  }
+
+  ul.nav-bar li {
+    border: 1px solid grey;
+    padding: 6px 15px;
+    width: 80rem;
+    text-align: center;
+    font-size: 14px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -68,37 +94,74 @@ p {
     max-width: 728px;
     margin: 0 auto;
   }
+
+  nav.navbar {
+    padding: 0 50px;
+  }
+
+  img.logo {
+    display: flex;
+    width: 200px;
+    align-items: center;
+    margin: 10px;
+  }
+
+  ul.nav-bar li {
+    border: 1px solid grey;
+    padding: 10px 20px;
+    width: 100rem;
+    text-align: center;
+  }
 }
 
 /* ---- components ---- */
 
-.submit-button {
+.button {
   padding: 15px;
   background-color: #283c4f;
   color: white;
   font-size: 16px;
   border-radius: 10px;
   width: 100px;
-  margin: 10px 0;
+  margin: 10px;
+  text-align: center;
 }
 
-.submit-button:hover {
+.button:hover {
   background-color: #71f1fb;
   color: #283c4f;
+}
+
+a.button {
+  text-decoration: none;
 }
 
 /* ---- navbar ---- */
 
 nav.navbar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  align-items: space-between;
   background-color: #283c4f;
-  padding: 20px 50px;
 }
 
-img.logo {
-  width: 200px;
+div.navbar-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul.nav-bar {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul.nav-bar a {
+  color: white;
+  text-decoration: none;
 }
 
 ul.signup-and-login {
@@ -129,8 +192,17 @@ ul.signup-and-login {
 
 /* ---- login form ---- */
 
-a.login-link {
-  text-decoration: none;
+input.font-awesome {
+  font-family: 'Minion Pro', FontAwesome, Arial, sans-serif;
+  font-size: 0.8rem;
+  padding: 5px;
+}
+
+/* ---- profile page ---- */
+
+.profile {
+  display: flex;
+  align-items: center;
 }
 
 /* ---- footer ---- */

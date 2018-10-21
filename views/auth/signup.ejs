@@ -1,15 +1,15 @@
-<div class="signup container">
+<div class="signup">
   <h1>Sign up at Linkyart</h1>
   <form class="signup-form" action="/auth/signup" method='post'>
     <div><label for="username">Username: </label>
-    <input type='text' size="20" name="username" required></div>
+    <input class="font-awesome" type='text' size="20" name="username" placeholder="&#xf007; &nbsp; your username" required></div>
     <div><label for="password">Password: </label>
-    <input type='password' size="20" name="password" required></div>
-    <div><label for="artist">Artist: </label>
-    <input type="radio" id="artist" name="artist" value="artist" required></div>
+    <input class="font-awesome" type='password' size="20" name="password" placeholder="&#xf13e; &nbsp; your password" required></div>
+    <div><label for="is_artist">Artist: </label>
+    <input type="radio" id="artist" name="is_artist" value="true" required></div>
     <div><label for="space-owner">Space owner: </label>
-    <input type="radio" id="space-owner" name="artist" value="space-owner"></div>
-    <input class="submit-button" type="submit" value="send">
+    <input type="radio" id="space-owner" name="is_artist" value="false"></div>
+    <input class="button" type="submit" value="send">
   </form>
   If you already have an account, <a class="login-link" href="/auth/login">log in here.</a>
 </div>
