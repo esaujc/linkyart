@@ -13,7 +13,7 @@ router.get('/', function (req, res, next) {
 });
 
 /* GET login page */
-router.get('/login', /* middlewares.alreadyLoggedIn, */ (req, res, next) => {
+router.get('/login', middlewares.alreadyLoggedIn, (req, res, next) => {
   res.render('auth/login');
 });
 
@@ -26,8 +26,8 @@ router.post('/login', middlewares.alreadyLoggedIn, middlewares.requireFields, (r
       if (bcrypt.compareSync(password, userFound.password)) {
         // Save the login in the session!
         console.log(req.session);
-        req.session.currentUser = userFound.username;
-        res.redirect('/profile');
+        req.session.currentUser = userFound;
+        res.redirect('/profile/profile');
       } else {
         console.log('Password erroneo');
         res.redirect('/auth/login', { error: 'Username or password are incorrect.' });
@@ -52,48 +52,29 @@ router.post('/signup', middlewares.requireFields, middlewares.userExists, (req, 
 
   user.password = hashedPassword;
 
-  // let newUser = new User({ user });
-  // newUser.save(err => {
-  //   if (err) {
-  //     // handle error
-  //     return console.log(err);
-  //   }
-  //   // user has been saved
-  //   console.log(user);
-  // });
-
   User.create(user)
     .then((user) => {
       req.session.currentUser = user;
-      res.redirect('/profile');
+      res.redirect('/profile/profile');
     })
-    .catch(() => {
+    .catch((error) => {
       next(error);
-    })
-    .catch(next);
+    });
 });
 
+router.get('/logout', middlewares.requireUser, (req, res, next) => {
+  req.session.destroy((err) => {
+    next(err);
+  });
+  // cannot access session here
+  res.redirect('/');
+});
 // - GET /auth/login
 //   - redirects to /user if user logged in
 //   - renders the login form (with flash msg)
-// - POST /auth/login
-//   - redirects to /user if user logged in
-//   - body:
-//     - username
-//     - password
-//     - artist: true/false
+
 // - GET /auth/signup
 //   - redirects to /user if user logged in
 //   - renders the signup form (with flash msg)
-// - POST /auth/signup
-//   - redirects to /user if user logged in
-//   - body:
-//     - username
-//     - password
-//     - artist: true/false
-
-// - POST /auth/logout
-//   - redirects to /
-//   - body: (empty)
 
 module.exports = router;

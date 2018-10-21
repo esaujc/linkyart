@@ -7,12 +7,22 @@ const newMesage = new Message();
 
 // const idArtist = ObjectId('5bcb8cdb8e835b5fa1ebab7a'); // user12
 
-router.get('/', middlewares.requireUser, (req, res, next) => {
+router.get('/profile', middlewares.requireUser, (req, res, next) => {
+  const user = req.session.currentUser;
+
+  User.findById(user._id)
+    .then(() => {
+      res.render('profile/profile');
+    })
+    .catch(next);
+});
+
+router.get('/messages', middlewares.requireUser, (req, res, next) => {
   const user = req.session.currentUser;
 
   User.findById(user._id)
     .catch(next);
-  res.render('profile');
+  res.render('profile/messages');
 });
 
 router.get('/messages', (req, res, next) => {

@@ -35,7 +35,7 @@ function requireUser (req, res, next) {
 
 function alreadyLoggedIn (req, res, next) {
   if (req.session.currentUser) {
-    return res.redirect('/profile');
+    return res.redirect('/profile/profile');
   } else {
     next();
   }
