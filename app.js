@@ -13,7 +13,6 @@ const authRouter = require('./routes/auth');
 const profileRouter = require('./routes/profile');
 const artistsRouter = require('./routes/artists');
 const spacesRouter = require('./routes/spaces');
-const messagesRouter = require('./routes/messages');
 
 const app = express();
 
@@ -47,7 +46,6 @@ app.use('/auth', authRouter);
 app.use('/profile', profileRouter);
 app.use('/artists', artistsRouter);
 app.use('/spaces', spacesRouter);
-app.use('/messages', messagesRouter);
 
 mongoose.connect('mongodb://localhost/artyApp', { useNewUrlParser: true })
   .then(() => {

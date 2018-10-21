@@ -11,7 +11,8 @@ const spaceSchema = new Schema({
   contactName: String,
   email: String,
   telephone: String,
-  homepage: String
+  homepage: String,
+  images: []
 });
 
 const Space = mongoose.model('Space', spaceSchema);

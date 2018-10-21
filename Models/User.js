@@ -9,7 +9,8 @@ const userSchema = new Schema({
   name: String,
   email: String,
   telephone: String,
-  homepage: String
+  homepage: String,
+  images: []
 });
 
 const User = mongoose.model('User', userSchema);

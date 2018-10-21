@@ -8,5 +8,26 @@
 </head>
 <body>
   <h1>Message List</h1>
+  <ul>
+  <% data2.forEach((message) => { %>
+    <li><%= message.usernameArtist %></li> 
+    <li><%= message.nameArtist %> </li>
+    <li><%= message.usernameSpace %> </li>
+    <li><%= message.nameSpace %> </li>
+    <li><%= message.emailSpace %> </li>
+    <hr/>
+  <% })%> 
+  </ul>
+  <ul>
+  <% data3.forEach((message) => { %>
+    <li><%= message.usernameArtist %></li> 
+    <li><%= message.nameArtist %> </li>
+    <li><%= message.usernameSpace %> </li>
+    <li><%= message.nameSpace %> </li>
+    <li><%= message.emailSpace %> </li>
+    <hr/>
+  <% })%> 
+  </ul>
+
 </body>
 </html>

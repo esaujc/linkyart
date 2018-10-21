@@ -7,8 +7,11 @@
   <title>Detail of Spaces</title>
 </head>
 <body>
-<ul>
+
   <%= space.name %>
-  </ul>
+  <form action="/spaces/<%= space._id %>" method="post">
+    <button type="submit">Send a Request</button>
+  </form>
+  
 </body>
 </html>

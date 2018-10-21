@@ -7,8 +7,12 @@
   <title>Detail of Artist</title>
 </head>
 <body>
-<ul>
-  <%= user.name %>
-  </ul>
+<%= user.name %>
+<form action="/artists/<%= user._id %>" method="post">
+  <button type="submit">Send a Request</button>
+</form>
+
+
+
 </body>
 </html>
