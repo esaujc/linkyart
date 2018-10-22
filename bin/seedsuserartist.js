@@ -11,7 +11,7 @@ const hashedPassword = bcrypt.hashSync('1234', salt);
 const users = [
   {
     is_artist: true,
-    username: 'user07',
+    username: 'Artist01',
     password: hashedPassword,
     name: 'Jhon',
     email: 'jhon@jur.com',
@@ -20,7 +20,7 @@ const users = [
   },
   {
     is_artist: true,
-    username: 'user08',
+    username: 'Artist02',
     password: hashedPassword,
     name: 'Ann',
     email: 'ann@jur.com',
@@ -29,7 +29,7 @@ const users = [
   },
   {
     is_artist: true,
-    username: 'user09',
+    username: 'Artist03',
     password: hashedPassword,
     name: 'Raul',
     email: 'raul@jur.com',
@@ -38,7 +38,7 @@ const users = [
   },
   {
     is_artist: true,
-    username: 'user10',
+    username: 'Artist04',
     password: hashedPassword,
     name: 'Raul',
     email: 'raul@jur.com',
@@ -47,7 +47,7 @@ const users = [
   },
   {
     is_artist: true,
-    username: 'user11',
+    username: 'Artist05',
     password: hashedPassword,
     name: 'Peter',
     email: 'peter@jur.com',
@@ -56,7 +56,7 @@ const users = [
   },
   {
     is_artist: true,
-    username: 'user12',
+    username: 'Artist06',
     password: hashedPassword,
     name: 'Maria',
     email: 'maria@jur.com',
