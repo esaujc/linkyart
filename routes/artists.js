@@ -6,7 +6,6 @@ const Space = require('../Models/Space');
 const middlewares = require('../middlewares/middlewares');
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
-const newMessage = new Message();
 
 // Formato de la fecha yyyy/mm/dd
 const dateObj = new Date();
@@ -35,20 +34,22 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/:id', (req, res) => {
-  const idArtist = ObjectId(req.params.id);
-  // const idArtist = ObjectId(req.session.currentUser);
-  // const idArtist = ObjectId('5bcc76872732493d331fe73c'); // user12
-  const idNonArtist = ObjectId('5bcc7680c39a8e3d19444db2'); // user06
+router.post('/:id', middlewares.userExists, (req, res) => {
+  const user = req.session.currentUser;
 
-  Space.find({ owner: { $eq: ObjectId('5bcc7680c39a8e3d19444db2') } })
+  const idArtist = ObjectId(req.params.id);
+  const idNonArtist = ObjectId(user._id);
+
+  Space.find({ owner: { $eq: ObjectId(user._id) } })
     .then((space) => {
+      const newMessage = new Message();
       newMessage.sender = idNonArtist;
       newMessage.spaceToRent = ObjectId(space._id);
       newMessage.reciever = idArtist;
       newMessage.date = newdate;
       console.log(newMessage);
-      Message.create(newMessage)
+      newMessage.save()
+      // Message.create(newMessage)
         .then(() => {
           res.redirect('/artists');
         })

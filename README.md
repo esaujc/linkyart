@@ -183,15 +183,23 @@ homepage: String
 3. Create homepage and links.
 4. Create models. Create seeds.
 5. Create routes files. 
-6. Create login and signup pages. 
-7. Connect homepage, login and signup.
-8. Create profile page.
-9. Create messages page.
-10. Create artists - artists/:id page.
-11. Create spaces - spaces/:id page.
-12. Connect profile, artists and spaces pages.
-13. 
-XX. Add error pages.
+6. Create login and signup pages
+7. Create layouts and partials. 
+8. Connect homepage, login and signup.
+9. Create profile page.
+10. Create messages page.
+11. Create artists - artists/:id page.
+12. Create spaces - spaces/:id page.
+13. Connect profile, artists and spaces pages.
+14. Create middlewares to check signup, login, password, access routes, etc.
+15. Create send messages functionality in artist/spaces.
+16. Add basic CCS to all pages.
+17. Create sessions and check routes when you are login or logout.
+18. Create messages section: received and sent messages.  
+19. Add Flash error messages.
+20. Add error pages 404, 500.
+21. Complete CCS. 
+
 
 ## Links
 

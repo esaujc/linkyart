@@ -1,1 +1,31 @@
 <h1>Messages</h1>
+
+  <h2>Requests Sent</h2>
+  <% if (senders !== null) { %>
+    <ul>
+    <% senders.forEach((message) => { %>
+      <% if (message.reciever !== null) { %>
+      <li><%= message.reciever.username %> </li>
+      <li><%= message.reciever.name %> </li>  
+    <% } %>
+      <hr/>
+    <% })%> 
+    </ul>
+  <% } %>
+  
+  
+  <h2>Requests Recieved</h2>
+  <% if (recivers !== null)  { %>
+    <ul>
+    <% recivers.forEach((message) => { %>
+      <li><%= message.sender.username %> </li>
+      <li> <%= message.sender.name %> </li>
+      <li> <%= message.sender.email %> </li>
+      <li> <%= message.sender.telephone %> </li>
+      <li> <%= message.sender.homepage %> </li>
+
+      <hr/>
+    <% })%> 
+    </ul>
+  <% } %>
+ 
