@@ -13,33 +13,38 @@ router.get('/', function (req, res, next) {
 });
 
 /* GET login page */
-router.get('/login', middlewares.alreadyLoggedIn, (req, res, next) => {
+router.get('/login', middlewares.notifications, middlewares.alreadyLoggedIn, (req, res, next) => {
   res.render('auth/login');
 });
 
-router.post('/login', middlewares.alreadyLoggedIn, middlewares.requireFields, (req, res, next) => {
+router.post('/login', middlewares.requireFields, (req, res, next) => {
   const { username, password } = req.body;
 
   User.findOne({ username })
     .then(userFound => {
-      // Login user
-      if (bcrypt.compareSync(password, userFound.password)) {
-        // Save the login in the session!
-        console.log(req.session);
-        req.session.currentUser = userFound;
-        res.redirect('/profile/profile');
+      if (userFound) {
+        // Login user
+        if (bcrypt.compareSync(password, userFound.password)) {
+          // Saves the login in the session!
+          req.session.currentUser = userFound;
+          return res.redirect('/profile/profile');
+        } else {
+          // sends error message: req.flash('message-name', 'The message content');
+          req.flash('error', 'Username or password is incorrect.');
+          return res.redirect('/auth/login');
+        }
       } else {
-        console.log('Password erroneo');
-        res.redirect('/auth/login', { error: 'Username or password are incorrect.' });
+        req.flash('error', 'Username or password is incorrect.');
+        return res.redirect('/auth/login');
       }
     })
-    .catch((error) => {
-      next(error);
+    .catch((err) => {
+      next(err);
     });
 });
 
 /* GET signup page */
-router.get('/signup', (req, res, next) => {
+router.get('/signup', middlewares.notifications, middlewares.alreadyLoggedIn, (req, res, next) => {
   res.render('auth/signup');
 });
 
@@ -55,26 +60,21 @@ router.post('/signup', middlewares.requireFields, middlewares.userExists, (req, 
   User.create(user)
     .then((user) => {
       req.session.currentUser = user;
-      res.redirect('/profile/profile');
+      return res.redirect('/profile/profile');
     })
     .catch((error) => {
       next(error);
     });
 });
 
-router.get('/logout', middlewares.requireUser, (req, res, next) => {
-  req.session.destroy((err) => {
-    next(err);
-  });
-  // cannot access session here
+router.post('/logout', middlewares.requireUser, (req, res, next) => {
+  delete req.session.currentUser;
+  req.flash('info', 'Welcome back!');
   res.redirect('/');
+  // req.session.destroy((err) => {
+  //   next(err);
+  // });
+  // cannot access session here
 });
-// - GET /auth/login
-//   - redirects to /user if user logged in
-//   - renders the login form (with flash msg)
-
-// - GET /auth/signup
-//   - redirects to /user if user logged in
-//   - renders the signup form (with flash msg)
 
 module.exports = router;

@@ -1,9 +1,11 @@
-<h1>Profile Page</h1>
-<div class="profile">
-  <% if (currentUser.is_artist) { %>
-    <a href="/spaces" class="button spaces">Spaces</a>
-  <% } else { %>
-    <a href="/artists" class="button artists">Artists</a>
-  <% } %>
-  <a href="/profile/messages" class="button">Messages</a>
+<div class="backplate">
+  <h1>Profile Page</h1>
+  <div class="profile">
+    <% if (currentUser.is_artist) { %>
+      <a href="/spaces" class="button spaces">Spaces</a>
+    <% } else { %>
+      <a href="/artists" class="button artists">Artists</a>
+    <% } %>
+    <a href="/profile/messages" class="button">Messages</a>
+  </div>
 </div>
