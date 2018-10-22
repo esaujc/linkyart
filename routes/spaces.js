@@ -16,7 +16,7 @@ const ObjectId = mongoose.Types.ObjectId;
 // const newdate = year + '/' + month + '/' + day;
 
 /* GET index home page */
-router.get('/', (req, res, next) => {
+router.get('/', middlewares.alreadyLoggedInNotArtist, (req, res, next) => {
   Space.find()
     .then(spaces => {
       res.render('spaces/list', { spaces });
@@ -27,7 +27,7 @@ router.get('/', (req, res, next) => {
   // res.render('index');
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', middlewares.alreadyLoggedInNotArtist, (req, res) => {
   const idSpace = req.params.id;
 
   Space.findById(idSpace)
@@ -36,7 +36,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/:id', middlewares.userExists, (req, res) => {
+router.post('/:id', middlewares.userExists, middlewares.alreadyLoggedInNotArtist, (req, res) => {
   const user = req.session.currentUser;
 
   const idSpace = ObjectId(req.params.id);

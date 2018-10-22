@@ -1,7 +1,8 @@
 <h1>Spaces list</h1>
 <ul>
   <% spaces.forEach(space => { %>
-    <li><%= space.name %>
+    <li><%= space.name %> <%= space.contactName %>
+    <%= space.homepage %> <%= space.images %>
     <button><a href="/spaces/<%= space._id %>">See more</a></button></li>
   <% }) %>
 </ul>

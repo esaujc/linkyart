@@ -5,17 +5,18 @@ const Message = require('../Models/Message');
 const Space = require('../Models/Space');
 const middlewares = require('../middlewares/middlewares');
 const mongoose = require('mongoose');
+const formatDate = require('../public/javascript/main');
 const ObjectId = mongoose.Types.ObjectId;
 
-// Formato de la fecha yyyy/mm/dd
-const dateObj = new Date();
-const month = dateObj.getUTCMonth() + 1; // months from 1-12
-const day = dateObj.getUTCDate();
-const year = dateObj.getUTCFullYear();
-const newdate = year + '/' + month + '/' + day;
+// // Formato de la fecha yyyy/mm/dd
+// const dateObj = new Date();
+// const month = dateObj.getUTCMonth() + 1; // months from 1-12
+// const day = dateObj.getUTCDate();
+// const year = dateObj.getUTCFullYear();
+// const newdate = year + '/' + month + '/' + day;
 
 /* GET index home page */
-router.get('/', (req, res, next) => {
+router.get('/', middlewares.alreadyLoggedInArtist, (req, res, next) => {
   User.find({ is_artist: { $eq: true } })
     .then(users => {
       res.render('artists/list', { users });
@@ -25,7 +26,7 @@ router.get('/', (req, res, next) => {
     });
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', middlewares.alreadyLoggedInArtist, (req, res) => {
   const idUser = req.params.id;
 
   User.findById(idUser)
@@ -34,7 +35,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/:id', middlewares.userExists, (req, res) => {
+router.post('/:id', middlewares.userExists, middlewares.alreadyLoggedInArtist, (req, res) => {
   const user = req.session.currentUser;
 
   const idArtist = ObjectId(req.params.id);
@@ -46,7 +47,7 @@ router.post('/:id', middlewares.userExists, (req, res) => {
       newMessage.sender = idNonArtist;
       newMessage.spaceToRent = ObjectId(space._id);
       newMessage.reciever = idArtist;
-      newMessage.date = newdate;
+      newMessage.date = formatDate();
       console.log(newMessage);
       newMessage.save()
       // Message.create(newMessage)

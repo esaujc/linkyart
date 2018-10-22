@@ -55,10 +55,27 @@ function notifications (req, res, next) {
   next();
 };
 
+function alreadyLoggedInArtist (req, res, next) {
+  if ((req.session.currentUser) && (req.session.currentUser.is_artist === true)) {
+    return res.redirect('/profile/profile');
+  } else {
+    next();
+  }
+};
+function alreadyLoggedInNotArtist (req, res, next) {
+  if ((req.session.currentUser) && (req.session.currentUser.is_artist === false)) {
+    return res.redirect('/profile/profile');
+  } else {
+    next();
+  }
+};
+
 module.exports = {
   requireFields,
   userExists,
   requireUser,
   alreadyLoggedIn,
-  notifications
+  notifications,
+  alreadyLoggedInArtist,
+  alreadyLoggedInNotArtist
 };

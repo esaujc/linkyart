@@ -2,6 +2,7 @@
   <h1>Artists</h1>
   <% users.forEach(user => { %>
     <li><%= user.name %> <%= user.username %>
+    <%= user.homepage %> <%= user.images %>
     <button><a href="/artists/<%= user._id %>">See more</a></button></li>
   <% }) %>
   </ul>

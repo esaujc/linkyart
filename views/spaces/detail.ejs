@@ -8,7 +8,8 @@
 </head>
 <body>
 
-  <%= space.name %>
+<%= space.name %> <%= space.contactName %>
+<%= space.homepage %> <%= space.images %>
   <form action="/spaces/<%= space._id %>" method="post">
     <button type="submit">Send a Request</button>
   </form>
