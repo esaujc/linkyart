@@ -36,7 +36,7 @@ router.get('/:id', middlewares.alreadyLoggedInNotArtist, (req, res) => {
     });
 });
 
-router.post('/:id', middlewares.userExists, middlewares.alreadyLoggedInNotArtist, (req, res) => {
+router.post('/:id', middlewares.notifications, /*middlewares.alreadyRequested, */ middlewares.userExists, middlewares.alreadyLoggedInNotArtist, (req, res) => {
   const user = req.session.currentUser;
 
   const idSpace = ObjectId(req.params.id);
@@ -55,9 +55,10 @@ router.post('/:id', middlewares.userExists, middlewares.alreadyLoggedInNotArtist
           newMessage.spaceToRent = idSpace;
           newMessage.reciever = idNonArtist;
           newMessage.date = formatDate();
+          // req.flash('error', 'Request already send to this artist.');
           newMessage.save()
             .then(() => {
-              res.redirect('/spaces');
+              return res.redirect('/spaces');
             })
             .catch((error) => {
               console.log(error);

@@ -69,12 +69,8 @@ router.post('/signup', middlewares.requireFields, middlewares.userExists, (req, 
 
 router.post('/logout', middlewares.requireUser, (req, res, next) => {
   delete req.session.currentUser;
-  req.flash('info', 'Welcome back!');
+  req.flash('info', 'Hope to see you soon again!');
   res.redirect('/');
-  // req.session.destroy((err) => {
-  //   next(err);
-  // });
-  // cannot access session here
 });
 
 module.exports = router;

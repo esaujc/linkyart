@@ -62,6 +62,7 @@ function alreadyLoggedInArtist (req, res, next) {
     next();
   }
 };
+
 function alreadyLoggedInNotArtist (req, res, next) {
   if ((req.session.currentUser) && (req.session.currentUser.is_artist === false)) {
     return res.redirect('/profile/profile');
@@ -69,6 +70,15 @@ function alreadyLoggedInNotArtist (req, res, next) {
     next();
   }
 };
+
+// function alreadyRequested (req, res, next) {
+//   if (currentUser.requestSend) {
+//     req.flash('error', 'Request already send to this artist.');
+//     return res.redirect('/spaces');
+//   } else {
+//     next();
+//   }
+// }
 
 module.exports = {
   requireFields,
@@ -78,4 +88,5 @@ module.exports = {
   notifications,
   alreadyLoggedInArtist,
   alreadyLoggedInNotArtist
+  // alreadyRequested
 };

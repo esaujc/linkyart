@@ -41,7 +41,7 @@ h2 {
 }
 
 h3 {
-  line-height: 95%;
+  line-height: 125%;
   color: #323230;
 }
 
@@ -70,6 +70,10 @@ p {
 /* ---- responsive ---- */
 
 @media (max-width: 768px) {
+  body {
+    padding-top: 120px;
+  }
+
   .container {
     max-width: 728px;
     margin: 0 auto;
@@ -108,6 +112,10 @@ p {
 }
 
 @media (min-width: 768px) {
+  body {
+    padding-top: 170px;
+  }
+
   .container {
     max-width: 728px;
     margin: 0 auto;
@@ -214,6 +222,22 @@ p {
   margin-top: 20px;
 }
 
+.error, .not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
+
+.not-found-img {
+  padding: 10px;
+  width: 160px;
+}
+
+.problem-loading {
+  width: 150px;
+}
+
 /* ---- navbar ---- */
 
 nav.navbar {
@@ -221,6 +245,10 @@ nav.navbar {
   flex-direction: column;
   align-items: space-between;
   background-color: #323230;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
 }
 
 div.navbar-div {
@@ -313,7 +341,12 @@ input.font-awesome {
 /* ---- footer ---- */
 footer.footer {
   background-color: #323230;
-  padding: 20px 50px;
+  padding: 10px 20px;
   color: white;
+  font-weight: 100;
+}
+
+.footer-text {
+  font-size: 13px;
   font-weight: 100;
 }
