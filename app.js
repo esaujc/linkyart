@@ -13,10 +13,11 @@ const authRouter = require('./routes/auth');
 const profileRouter = require('./routes/profile');
 const artistsRouter = require('./routes/artists');
 const spacesRouter = require('./routes/spaces');
+require('dotenv').config();
 
 const app = express();
 
-mongoose.connect('mongodb://localhost/artyApp', { useNewUrlParser: true })
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true })
   .then(() => {
     console.log('Connected to Mongo!');
   })
