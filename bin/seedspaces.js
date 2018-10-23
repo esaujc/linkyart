@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Space = require('../Models/Space');
 const ObjectId = mongoose.Types.ObjectId;
 const User = require('../Models/User');
+require('dotenv').config();
 
 const spaces = [
   {
@@ -55,7 +56,7 @@ const spaces = [
 
 ];
 
-mongoose.connect('mongodb://localhost/artyApp', { useNewUrlParser: true })
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true })
   .then(() => {
     console.log('Connected to Mongo!');
     User.find()

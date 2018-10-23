@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const User = require('../Models/User');
+require('dotenv').config();
 
 // npm install bcrypt
 const bcrypt = require('bcrypt');
@@ -66,7 +67,7 @@ const users = [
 
 ];
 
-mongoose.connect('mongodb://localhost/artyApp', { useNewUrlParser: true })
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true })
   .then(() => {
     console.log('Connected to Mongo!');
     User.create(users)

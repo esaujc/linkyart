@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Message = require('../Models/Message');
 const ObjectId = mongoose.Types.ObjectId;
+require('dotenv').config();
 
 var dateObj = new Date();
 var month = dateObj.getUTCMonth() + 1; // months from 1-12
@@ -19,7 +20,7 @@ const messages = [
 
 ];
 
-mongoose.connect('mongodb://localhost/artyApp', { useNewUrlParser: true })
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true })
   .then(() => {
     console.log('Connected to Mongo!');
     Message.create(messages)
