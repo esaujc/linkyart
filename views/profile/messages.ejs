@@ -1,33 +1,42 @@
 <h1>Messages</h1>
+<div class="sender-receiver">
+  <div class="senders-div overflow">
+    <div class="signup-h">
+      <h3>Requests Sent</h3>
+    </div>
+    <div class="backplate">
+      <div class="senders">
+        <% if (senders !== null) { %>
+          <% senders.forEach((message) => { %>
+            <% if (message.reciever !== null) { %>
+            <p><%= message.reciever.username %> </p>
+            <p><%= message.reciever.name %> </p>  
+            <p><%= message.reciever.homepage %> </p>  
+          <% } %>
+            <hr/>
+          <% })%> 
+        <% } %>
+      </div>
+    </div>
+  </div>
 
-  <h2>Requests Sent</h2>
-  <% if (senders !== null) { %>
-    <ul>
-    <% senders.forEach((message) => { %>
-      <% if (message.reciever !== null) { %>
-      <li><%= message.reciever.username %> </li>
-      <li><%= message.reciever.name %> </li>  
-      <li><%= message.reciever.homepage %> </li>  
-
-    <% } %>
-      <hr/>
-    <% })%> 
-    </ul>
-  <% } %>
-  
-  
-  <h2>Requests Recieved</h2>
-  <% if (recivers !== null)  { %>
-    <ul>
-    <% recivers.forEach((message) => { %>
-      <li><%= message.sender.username %> </li>
-      <li> <%= message.sender.name %> </li>
-      <li> <%= message.sender.email %> </li>
-      <li> <%= message.sender.telephone %> </li>
-      <li> <%= message.sender.homepage %> </li>
-
-      <hr/>
-    <% })%> 
-    </ul>
-  <% } %>
- 
+  <div class="receivers-div overflow">
+    <div class="signup-h">
+      <h3>Requests Recieved</h3>
+    </div>
+    <div class="backplate">
+      <div class="receiver">
+        <% if (recivers !== null)  { %>
+          <% recivers.forEach((message) => { %>
+            <p><%= message.sender.username %> </p>
+            <p> <%= message.sender.name %> </p>
+            <p> <%= message.sender.email %> </p>
+            <p> <%= message.sender.telephone %> </p>
+            <p> <%= message.sender.homepage %> </p>
+            <hr/>
+          <% })%> 
+        <% } %>
+      </div>
+    </div>
+  </div>
+</div>

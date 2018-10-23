@@ -4,7 +4,7 @@ const middlewares = require('../middlewares/middlewares');
 
 /* GET home page. */
 router.get('/', middlewares.notifications, (req, res, next) => {
-  foo();
+  // foo();
   res.render('index');
 });
 

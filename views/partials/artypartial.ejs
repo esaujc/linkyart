@@ -3,6 +3,11 @@
     <div><a href="/"><img class="logo" src="../images/Linkyart-logo-white.png" alt="Linkyart logo"/></a></div>
     <ul class="signup-and-login">
       <% if (currentUser) { %>
+        <% if (currentUser.is_artist) { %>
+          <li><span class="user-name"><%= currentUser.username %></span>
+        <% } else { %>
+          <li><span class="user-name"><%= currentUser.username %></span>
+        <% } %>
         <li><form method="post" action="/auth/logout">
           <input class="logout-button" type="submit" value="Log out">
         </form></li>

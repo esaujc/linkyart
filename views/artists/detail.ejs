@@ -1,19 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Detail of Artist</title>
-</head>
-<body>
-<%= user.name %> <%= user.username %>
-    <%= user.homepage %> <%= user.images %>
-<form action="/artists/<%= user._id %>" method="post">
-  <button type="submit">Send a Request</button>
-</form>
-
-
-
-</body>
-</html>
+<div class="signup-h">
+  <h3><%= user.name %></h3>
+</div>
+<div class="backplate">
+  <div class="overflow">
+    <img class="spaces-img" src="<%= user.images %>" />
+    <p><%= user.username %></p>
+    <p><%= user.homepage %></p>
+    <form action="/artists/<%= user._id %>" method="post">
+      <button class="button" type="submit">Send a Request</button>
+    </form>
+  </div>
+</div>

@@ -3,7 +3,9 @@
 html {
   box-sizing: border-box;
   height: 100%;
-  background-image: url('../images/blue-metallic-grid-background-vector-1829638.jpg');
+  background-image: url('../images/photo-1530482817083-29ae4b92ff15.jpeg');
+  background-repeat: none;
+  background-size: cover;
   z-index: 1;
 }
 *, *:before, *:after {
@@ -16,28 +18,32 @@ body {
   justify-content: space-between;
   margin: 0;
   padding: 0;
-  height: 100%;
+  min-height: 100%;
 }
 
 /* ---- typography ---- */
 
 body {
   color: #111;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Minion Pro', Arial, sans-serif;
   font-size: 16px;
   line-height: 147%;
   background-image: url('#');
 }
 
 h1 {
-  color: #283c4f;
-  font-family: 'Minion Pro', Arial, sans-serif;
+  color: #fff;
   font-size: 32px;
 }
 
-h2 {}
+h2 {
+  color: #323230;
+}
 
-h3 {}
+h3 {
+  line-height: 95%;
+  color: #323230;
+}
 
 p {
   margin: 0;
@@ -48,11 +54,10 @@ p {
 #site-footer {
   color: white;
   padding: 60px 0;
-  background: #283c4f;
+  background: #323230;
 }
 
 .container {
-  padding: 50px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -61,6 +66,8 @@ p {
 .section {
   padding: 30px;
 }
+
+/* ---- responsive ---- */
 
 @media (max-width: 768px) {
   .container {
@@ -89,6 +96,15 @@ p {
     text-align: center;
     font-size: 14px;
   }
+
+  .senders-div, .receivers-div {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .spaces {
+    margin: 10px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -114,40 +130,70 @@ p {
     width: 100rem;
     text-align: center;
   }
+
+  .sender-receiver {
+    display: flex;
+  }
+
+  .receivers-div, .senders-div {
+    margin: 10px;
+  }
+
+  .spaces-div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .spaces {
+    margin: 10px;
+  }
 }
 
 /* ---- components ---- */
 
 .button {
   padding: 15px;
-  background-color: #283c4f;
+  background-image: linear-gradient(to right, #71f1fb 0%, #ad97de 100%);
   color: white;
   font-size: 16px;
-  border-radius: 10px;
+  border-radius: 30px;
   width: 100px;
   margin: 10px;
   text-align: center;
+  text-decoration: none;
+  border: none;
+  box-shadow: 0 0 20px grey;
+  display: block;
 }
 
-.button:hover {
-  background-color: #71f1fb;
-  color: #283c4f;
-}
-
-a.button {
+.backplate a {
   text-decoration: none;
 }
 
-.logout-button {
+.button:hover {
+  background-image: linear-gradient(to right, #ad97de 0%, #71f1fb 100%);
+  color: #323230;
+}
+
+.logout-button, .user-name {
   color: white;
   font-size: 16px;
-  background-color: #283c4f;
+  background-color: #323230;
   border: none;
 }
 
+.user-name {
+  padding: 5px;
+}
+
 .backplate {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.6);
   z-index: 10;
+  border-radius: 0 0 10px 10px;
+  border-style: none;
+  padding: 10px;
+  width: 300px;
 }
 
 /* ---- alerts ---- */
@@ -174,7 +220,7 @@ nav.navbar {
   display: flex;
   flex-direction: column;
   align-items: space-between;
-  background-color: #283c4f;
+  background-color: #323230;
 }
 
 div.navbar-div {
@@ -222,12 +268,20 @@ ul.signup-and-login {
   padding: 10px 0;
 }
 
+.signup-h {
+  background-image: linear-gradient(to right, #71f1fb 0%, #ad97de 100%);
+  padding: 10px;
+  width: 300px;
+  border-radius: 10px 10px 0 0;
+}
+
 /* ---- login form ---- */
 
 input.font-awesome {
   font-family: 'Minion Pro', FontAwesome, Arial, sans-serif;
   font-size: 0.8rem;
   padding: 5px;
+  margin-left: 10px;
 }
 
 /* ---- profile page ---- */
@@ -237,9 +291,28 @@ input.font-awesome {
   align-items: center;
 }
 
+/* ---- messages ---- */
+
+.overlow {
+  overflow: scroll;
+}
+
+.wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* ---- spaces ---- */
+.spaces-img {
+  width: 275px;
+  height: 200px;
+  border: 1px solid #323230;
+  overflow: hidden;
+}
+
 /* ---- footer ---- */
 footer.footer {
-  background-color: #283c4f;
+  background-color: #323230;
   padding: 20px 50px;
   color: white;
   font-weight: 100;
