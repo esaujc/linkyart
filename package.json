@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
-    "addusers": "node ./bin/seedsuser.js", 
+    "addusers": "node ./bin/seedsuser.js",
     "addusersartist": "node ./bin/seedsuserartist.js",
     "addspaces": "node ./bin/seedspaces.js"
   },

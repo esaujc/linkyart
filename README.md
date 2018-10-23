@@ -30,6 +30,7 @@ Artist profile:
 - see Art Spaces profiles.
 - result filters by type of Art Space or by name.
 - rating Art Spaces.
+- change password. 
  
 Art Space profile:
 - see and update my profile.
@@ -38,11 +39,12 @@ Art Space profile:
 - see Artists profiles.
 - result filters by type of Artist or by name.
 - rating Artists.
-
+- change password.
 
 Homepage
 - improve graphic effects.
 - API
+- Add 'likes'
 
 
 ## ROUTES:
@@ -198,7 +200,8 @@ homepage: String
 18. Create messages section: received and sent messages.  
 19. Add Flash error messages.
 20. Add error pages 404, 500.
-21. Complete CCS. 
+21. Complete CCS.
+
 
 
 ## Links
