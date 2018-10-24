@@ -27,7 +27,7 @@ router.post('/login', middlewares.requireFields, (req, res, next) => {
         if (bcrypt.compareSync(password, userFound.password)) {
           // Saves the login in the session!
           req.session.currentUser = userFound;
-          return res.redirect('/profile/profile');
+          return res.redirect('/profile');
         } else {
           // sends error message: req.flash('message-name', 'The message content');
           req.flash('error', 'Username or password is incorrect.');
@@ -60,7 +60,7 @@ router.post('/signup', middlewares.requireFields, middlewares.userExists, (req, 
   User.create(user)
     .then((user) => {
       req.session.currentUser = user;
-      return res.redirect('/profile/profile');
+      return res.redirect('/profile');
     })
     .catch((error) => {
       next(error);

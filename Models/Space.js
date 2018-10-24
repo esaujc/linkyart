@@ -12,7 +12,7 @@ const spaceSchema = new Schema({
   email: String,
   telephone: String,
   homepage: String,
-  images: []
+  image: String
 });
 
 const Space = mongoose.model('Space', spaceSchema);

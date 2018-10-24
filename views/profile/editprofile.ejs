@@ -3,15 +3,16 @@
 <% if (currentUser.is_artist) {%>
   <h1>User Artist</h1>
   <label><b>Name:</b> </label> <input type="text" size="20" name="name" value="<%= user.name %>"><br/><br/>
-  <label><b>Email:</b> </label> <input type="text" size="20" name="email" value="<%= user.email %>"><br/><br/>
-  <label><b>Telephone :</b> </label> <input type="text" size="20" name="telephone" value="<%= user.telephone %>"><br/><br/>
-  <label><b>Homepage:</b> </label> <input type="text" size="30" name="homepage" value="<%= user.homepage %>"><br/><br/>
+  <label><b>Email:</b> </label> <input type="email" size="20" name="email" value="<%= user.email %>"><br/><br/>
+  <label><b>Telephone :</b> </label> <input type="number" size="20" name="telephone" value="<%= user.telephone %>"><br/><br/>
+  <label><b>Homepage:</b> </label> <input type="url" size="30" name="homepage" value="<%= user.homepage %>"><br/><br/>
+  <label><b>Image:</b> </label> <input type="url"  name="image" value="<%= user.image %>"><br/><br/>
 <% } else {%>
 <h1>user Space</h1>
   <label><b>Name:</b> </label> <input type="text" size="20" name="name" value="<%= user.name %>"><br/><br/>
-  <label><b>Email:</b> </label> <input type="text" size="20" name="email" value="<%= user.email %>"><br/><br/>
-  <label><b>Telephone :</b> </label> <input type="text" size="20" name="telephone" value="<%= user.telephone %>"><br/><br/>
-  <label><b>Homepage:</b> </label> <input type="text" size="30" name="homepage" value="<%= user.homepage %>"><br/><br/>
+  <label><b>Email:</b> </label> <input type="email" size="20" name="email" value="<%= user.email %>"><br/><br/>
+  <label><b>Telephone :</b> </label> <input type="numeric" size="20" name="telephone" value="<%= user.telephone %>"><br/><br/>
+  <label><b>Homepage:</b> </label> <input type="url" size="30" name="homepage" value="<%= user.homepage %>"><br/><br/>
 <% }%>
 <input type="submit" value="Send">
 </form>

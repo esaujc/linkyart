@@ -11,7 +11,8 @@ const spaces = [
     contactName: 'Frank',
     email: 'frank@lag.com',
     telephone: '123456',
-    homepage: 'https://github.com/esaujc/linkyart'
+    homepage: 'https://github.com/esaujc/linkyart',
+    image: 'http://scgallery.es/administracion/wp-content/uploads/2018/05/sebasvelasco-smithe-anna-taratiel-axel-void-eltono-deih-remed-scgallery.jpg'
   },
   {
     owner: ObjectId('111111111111111111111111'), // User02
@@ -19,7 +20,9 @@ const spaces = [
     contactName: 'Ron',
     email: 'ron@ron-gallery.com',
     telephone: '123456',
-    homepage: 'https://github.com/esaujc/linkyart'
+    homepage: 'https://github.com/esaujc/linkyart',
+    image: 'https://design-milk.com/images/2010/11/falkenberg-2.jpg'
+
   },
   {
     owner: ObjectId('111111111111111111111111'), // User03
@@ -27,7 +30,8 @@ const spaces = [
     contactName: 'Lorel',
     email: 'lorel@lagrest.com',
     telephone: '123456',
-    homepage: 'https://github.com/esaujc/linkyart'
+    homepage: 'https://github.com/esaujc/linkyart',
+    image: 'https://www.plataformadeartecontemporaneo.com/pac/wp-content/uploads/2018/01/REMED-SER-ENTRE-SEMILLA-Y-CENIZA-62-466x311.jpg'
   },
   {
     owner: ObjectId('111111111111111111111111'), // User04
@@ -35,7 +39,8 @@ const spaces = [
     contactName: 'Marco',
     email: 'marco@lag.com',
     telephone: '123456',
-    homepage: 'https://github.com/esaujc/linkyart'
+    homepage: 'https://github.com/esaujc/linkyart',
+    image: 'https://www.plataformadeartecontemporaneo.com/pac/wp-content/uploads/2018/01/REMED-SER-ENTRE-SEMILLA-Y-CENIZA-62-466x311.jpg'
   },
   {
     owner: ObjectId('111111111111111111111111'), // User05
@@ -43,7 +48,8 @@ const spaces = [
     contactName: 'Mat',
     email: 'mat@math-gallery.com',
     telephone: '123456',
-    homepage: 'https://github.com/esaujc/linkyart'
+    homepage: 'https://github.com/esaujc/linkyart',
+    image: 'https://www.plataformadeartecontemporaneo.com/pac/wp-content/uploads/2018/01/REMED-SER-ENTRE-SEMILLA-Y-CENIZA-62-466x311.jpg'
   },
   {
     owner: ObjectId('111111111111111111111111'), // User06
@@ -51,9 +57,9 @@ const spaces = [
     contactName: 'Oliver',
     email: 'oliver@ljarlgallery.com',
     telephone: '123456',
-    homepage: 'https://github.com/esaujc/linkyart'
+    homepage: 'https://github.com/esaujc/linkyart',
+    image: 'https://poncerobles.com/es/img/temporadas/13_1.jpg'
   }
-
 ];
 
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true })
