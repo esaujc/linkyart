@@ -9,7 +9,7 @@ const middlewares = require('../middlewares/middlewares');
 
 // const idArtist = ObjectId('5bcb8cdb8e835b5fa1ebab7a'); // user12
 
-router.get('/profile', middlewares.requireUser, (req, res, next) => {
+router.get('/', middlewares.requireUser, (req, res, next) => {
   const user = req.session.currentUser;
 
   User.findById(user._id)
@@ -40,7 +40,7 @@ router.post('/edit', (req, res) => {
   // User.findOneAndUpdate(id, profile)
     .then((result) => {
       console.log(result);
-      res.redirect('/profile/profile');
+      res.redirect('/profile');
     })
     .catch((error) => {
       console.log(error);
@@ -95,7 +95,7 @@ router.post('/space', (req, res) => {
   Space.findByIdAndUpdate(profile.id, profile)
     .then((result) => {
       console.log(result);
-      res.redirect('/profile/profile');
+      res.redirect('/profile');
     })
     .catch((error) => {
       console.log(error);

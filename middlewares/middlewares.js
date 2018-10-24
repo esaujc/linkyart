@@ -39,7 +39,7 @@ function requireUser (req, res, next) {
 
 function alreadyLoggedIn (req, res, next) {
   if (req.session.currentUser) {
-    return res.redirect('/profile/profile');
+    return res.redirect('/profile');
   } else {
     next();
   }
@@ -57,7 +57,7 @@ function notifications (req, res, next) {
 
 function alreadyLoggedInArtist (req, res, next) {
   if ((req.session.currentUser) && (req.session.currentUser.is_artist === true)) {
-    return res.redirect('/profile/profile');
+    return res.redirect('/profile');
   } else {
     next();
   }
@@ -65,7 +65,7 @@ function alreadyLoggedInArtist (req, res, next) {
 
 function alreadyLoggedInNotArtist (req, res, next) {
   if ((req.session.currentUser) && (req.session.currentUser.is_artist === false)) {
-    return res.redirect('/profile/profile');
+    return res.redirect('/profile');
   } else {
     next();
   }

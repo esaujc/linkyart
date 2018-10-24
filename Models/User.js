@@ -10,7 +10,7 @@ const userSchema = new Schema({
   email: String,
   telephone: String,
   homepage: String,
-  images: []
+  image: String
 });
 
 const User = mongoose.model('User', userSchema);
