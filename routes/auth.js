@@ -69,7 +69,7 @@ router.post('/signup', middlewares.requireFields, middlewares.userExists, (req, 
 
 router.post('/logout', middlewares.requireUser, (req, res, next) => {
   delete req.session.currentUser;
-  req.flash('info', 'Hope to see you soon again!');
+  req.flash('info', 'Welcome back soon!');
   res.redirect('/');
 });
 

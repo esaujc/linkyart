@@ -27,7 +27,7 @@ router.get('/', middlewares.alreadyLoggedInNotArtist, (req, res, next) => {
   // res.render('index');
 });
 
-router.get('/:id', middlewares.alreadyLoggedInNotArtist, (req, res) => {
+router.get('/:id', middlewares.notifications, middlewares.alreadyLoggedInNotArtist, (req, res, next) => {
   const idSpace = req.params.id;
 
   Space.findById(idSpace)
@@ -36,7 +36,7 @@ router.get('/:id', middlewares.alreadyLoggedInNotArtist, (req, res) => {
     });
 });
 
-router.post('/:id', middlewares.notifications, /*middlewares.alreadyRequested, */ middlewares.userExists, middlewares.alreadyLoggedInNotArtist, (req, res) => {
+router.post('/:id', middlewares.notifications, middlewares.userExists, middlewares.alreadyLoggedInNotArtist, (req, res, next) => {
   const user = req.session.currentUser;
 
   const idSpace = ObjectId(req.params.id);
@@ -55,23 +55,28 @@ router.post('/:id', middlewares.notifications, /*middlewares.alreadyRequested, *
           newMessage.spaceToRent = idSpace;
           newMessage.reciever = idNonArtist;
           newMessage.date = formatDate();
-          // req.flash('error', 'Request already send to this artist.');
-          newMessage.save()
-            .then(() => {
-              return res.redirect('/spaces');
+
+          Message.find({ sender: { $eq: ObjectId(idArtist) }, reciever: { $eq: ObjectId(idNonArtist) } })
+            .then(result => {
+              if (result.length > 0) {
+                req.flash('error', 'Request already send to this space.');
+                return res.redirect('/spaces/' + idSpace);
+              } else {
+                newMessage.save()
+                  .then(() => {
+                    req.flash('info', 'Request send successfully!');
+                    return res.redirect('/spaces/' + idSpace);
+                  })
+                  .catch((error) => {
+                    next(error);
+                  });
+              }
             })
-            .catch((error) => {
-              console.log(error);
-            });
+            .catch(next);
         })
-        .catch((error) => {
-          console.log(error);
-        });
+        .catch(next);
     })
-    .catch((error) => {
-      console.log(error);
-    });
-  // res.send('Aqui envia el mensaje');
+    .catch(next);
 });
 
 module.exports = router;

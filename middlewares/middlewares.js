@@ -71,15 +71,6 @@ function alreadyLoggedInNotArtist (req, res, next) {
   }
 };
 
-// function alreadyRequested (req, res, next) {
-//   if (currentUser.requestSend) {
-//     req.flash('error', 'Request already send to this artist.');
-//     return res.redirect('/spaces');
-//   } else {
-//     next();
-//   }
-// }
-
 module.exports = {
   requireFields,
   userExists,

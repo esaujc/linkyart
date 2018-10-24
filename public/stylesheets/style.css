@@ -29,6 +29,7 @@ body {
   font-size: 16px;
   line-height: 147%;
   background-image: url('#');
+  background-repeat: none;
 }
 
 h1 {

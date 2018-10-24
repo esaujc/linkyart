@@ -54,7 +54,7 @@ app.use((req, res, next) => {
   res.locals.currentUser = req.session.currentUser;
   next();
 });
-// asdoj
+
 app.use(flash());
 
 app.use('/', indexRouter);

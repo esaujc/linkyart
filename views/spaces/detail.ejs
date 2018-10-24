@@ -6,8 +6,12 @@
     <img class="spaces-img" src="<%= space.images %>" />
     <p><%= space.contactName %></p>
     <p><%= space.homepage %></p>
-    <form action="/spaces/<%= space._id %>" method="post">
-      <button class="button" type="submit">Send a Request</button>
-    </form>
+    <div class="button-box">
+      <form action="/spaces/<%= space._id %>" method="post">
+        <button class="button" type="submit">Send a Request</button>
+      </form>
+      <a href="/spaces" class="button">Go back</a>
+    </div>
   </div>
+  <%- include('../partials/notifications') %>
 </div>

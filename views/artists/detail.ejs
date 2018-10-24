@@ -6,8 +6,12 @@
     <img class="spaces-img" src="<%= user.images %>" />
     <p><%= user.username %></p>
     <p><%= user.homepage %></p>
+    <div class="button-box">
     <form action="/artists/<%= user._id %>" method="post">
       <button class="button" type="submit">Send a Request</button>
     </form>
+    <a href="/artists" class="button">Go back</a>
+    </div
   </div>
+  <%- include('../partials/notifications') %>
 </div>

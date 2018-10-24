@@ -26,7 +26,7 @@ router.get('/', middlewares.alreadyLoggedInArtist, (req, res, next) => {
     });
 });
 
-router.get('/:id', middlewares.alreadyLoggedInArtist, (req, res) => {
+router.get('/:id', middlewares.notifications, middlewares.alreadyLoggedInArtist, (req, res, next) => {
   const idUser = req.params.id;
 
   User.findById(idUser)
@@ -35,7 +35,7 @@ router.get('/:id', middlewares.alreadyLoggedInArtist, (req, res) => {
     });
 });
 
-router.post('/:id', middlewares.userExists, middlewares.alreadyLoggedInArtist, (req, res) => {
+router.post('/:id', middlewares.userExists, middlewares.alreadyLoggedInArtist, (req, res, next) => {
   const user = req.session.currentUser;
 
   const idArtist = ObjectId(req.params.id);
@@ -48,16 +48,25 @@ router.post('/:id', middlewares.userExists, middlewares.alreadyLoggedInArtist, (
       newMessage.spaceToRent = ObjectId(space._id);
       newMessage.reciever = idArtist;
       newMessage.date = formatDate();
-      console.log(newMessage);
-      newMessage.save()
-      // Message.create(newMessage)
-        .then(() => {
-          res.redirect('/artists');
+
+      Message.find({ sender: { $eq: ObjectId(idNonArtist) }, reciever: { $eq: ObjectId(idArtist) } })
+        .then(result => {
+          if (result.length > 0) {
+            req.flash('error', 'Request already send to this artist.');
+            return res.redirect('/artists/' + idArtist);
+          } else {
+            newMessage.save()
+              .then(() => {
+                return res.redirect('/artists');
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+          }
         })
-        .catch((error) => {
-          console.log(error);
-        });
-    });
+        .catch(next);
+    })
+    .catch(next);
 });
 
 module.exports = router;
