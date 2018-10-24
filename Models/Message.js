@@ -16,7 +16,8 @@ const messageSchema = new Schema({
     ref: 'User'
   },
   date: Date,
-  visible: Boolean
+  visibleSender: Boolean,
+  visibleReciever: Boolean
 });
 
 const Message = mongoose.model('Message', messageSchema);

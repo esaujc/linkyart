@@ -7,35 +7,40 @@ const middlewares = require('../middlewares/middlewares');
 const mongoose = require('mongoose');
 const formatDate = require('../public/javascript/main');
 const ObjectId = mongoose.Types.ObjectId;
-
-// // Formato de la fecha yyyy/mm/dd
-// const dateObj = new Date();
-// const month = dateObj.getUTCMonth() + 1; // months from 1-12
-// const day = dateObj.getUTCDate();
-// const year = dateObj.getUTCFullYear();
-// const newdate = year + '/' + month + '/' + day;
+const createError = require('http-errors');
 
 /* GET index home page */
-router.get('/', middlewares.alreadyLoggedInArtist, (req, res, next) => {
+router.get('/', middlewares.notLogged, middlewares.alreadyLoggedInArtist, (req, res, next) => {
   User.find({ is_artist: { $eq: true } })
     .then(users => {
       res.render('artists/list', { users });
     })
-    .catch((error) => {
-      console.log(error);
-    });
+    .catch(next);
 });
 
-router.get('/:id', middlewares.alreadyLoggedInArtist, (req, res) => {
+router.get('/:id', middlewares.notIdValid, middlewares.alreadyLoggedInArtist, middlewares.userExists, (req, res, next) => {
   const idUser = req.params.id;
+  const user = req.session.currentUser;
 
-  User.findById(idUser)
-    .then((user) => {
-      res.render('artists/detail', { user: user });
-    });
+  if (!ObjectId.isValid(idUser)) {
+    return next();
+  }
+
+  if (user._id.match(/^[0-9a-fA-F]{24}$/)) {
+    User.findById(idUser)
+      .then((user) => {
+        if (!user) {
+          const err = createError(404, 'This user does not exist');
+          next(err);
+        } else {
+          res.render('artists/detail', { user: user });
+        }
+      })
+      .catch(next);
+  }
 });
 
-router.post('/:id', middlewares.userExists, middlewares.alreadyLoggedInArtist, (req, res) => {
+router.post('/:id', middlewares.alreadyLoggedInArtist, middlewares.userExists, (req, res, next) => {
   const user = req.session.currentUser;
 
   const idArtist = ObjectId(req.params.id);
@@ -50,14 +55,12 @@ router.post('/:id', middlewares.userExists, middlewares.alreadyLoggedInArtist, (
       newMessage.date = formatDate();
       console.log(newMessage);
       newMessage.save()
-      // Message.create(newMessage)
         .then(() => {
           res.redirect('/artists');
         })
-        .catch((error) => {
-          console.log(error);
-        });
-    });
+        .catch(next);
+    })
+    .catch(next);
 });
 
 module.exports = router;

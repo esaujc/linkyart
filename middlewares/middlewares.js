@@ -80,6 +80,55 @@ function alreadyLoggedInNotArtist (req, res, next) {
 //   }
 // }
 
+function notLogged (req, res, next) {
+  if (!req.session.currentUser) {
+    req.flash('error', 'You should log in first.');
+    return res.redirect('/auth/login');
+  } else {
+    next();
+  }
+};
+
+function notIdValid (req, res, next) {
+  const user = req.body;
+
+  User.findById(user._id)
+    .then(user => {
+      if (!req.session.currentUser) {
+        req.flash('error', 'You should log in first.');
+        return res.redirect('/auth/login');
+      } else {
+        next();
+      }
+    })
+    .catch(next);
+};
+
+// function notIdValidLoggedIn (req, res, next) {
+//   const user = req.body;
+
+//   if (req.session.currentUser._id.match(/^[0-9a-fA-F]{24}$/)) {
+//     // Yes, it's a valid ObjectId, proceed with `findById` call.
+//     req.flash('error', 'User not found');
+//     next();
+//   } else {
+//     return res.redirect('/auth/login');
+//   }
+//   //   // req.flash('error', 'User not found');
+//   // }
+//   // User.findById(user._id)
+//   //   .then(user => {
+//   //     console.log('Entra');
+//   //     if (!user) {
+//   //       // req.flash('error', 'User not found');
+//   //       return res.redirect('/auth/login');
+//   //     } else {
+//   //       next();
+//   //     }
+//   //   })
+//   //   .catch(next);
+// };
+
 module.exports = {
   requireFields,
   userExists,
@@ -87,6 +136,9 @@ module.exports = {
   alreadyLoggedIn,
   notifications,
   alreadyLoggedInArtist,
-  alreadyLoggedInNotArtist
+  alreadyLoggedInNotArtist,
+  notLogged,
+  notIdValid
+  // notIdValidLoggedIn
   // alreadyRequested
 };

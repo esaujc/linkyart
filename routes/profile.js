@@ -9,7 +9,7 @@ const middlewares = require('../middlewares/middlewares');
 
 // const idArtist = ObjectId('5bcb8cdb8e835b5fa1ebab7a'); // user12
 
-router.get('/', middlewares.requireUser, (req, res, next) => {
+router.get('/', middlewares.notLogged, middlewares.requireUser, (req, res, next) => {
   const user = req.session.currentUser;
 
   User.findById(user._id)
@@ -20,7 +20,7 @@ router.get('/', middlewares.requireUser, (req, res, next) => {
 });
 
 // EDIT PROFILE
-router.get('/edit', middlewares.requireUser, (req, res, next) => {
+router.get('/edit', middlewares.notLogged, middlewares.requireUser, (req, res, next) => {
   const user = req.session.currentUser;
 
   // User.findById(user._id)
@@ -31,25 +31,20 @@ router.get('/edit', middlewares.requireUser, (req, res, next) => {
     .catch(next);
 });
 
-router.post('/edit', (req, res) => {
+router.post('/edit', (req, res, next) => {
   const profile = req.body;
   const id = req.session.currentUser._id;
 
-  console.log(profile);
   User.findByIdAndUpdate(id, profile)
-  // User.findOneAndUpdate(id, profile)
     .then((result) => {
-      console.log(result);
+      // console.log(result);
       res.redirect('/profile');
     })
-    .catch((error) => {
-      console.log(error);
-      res.render('error');
-    });
+    .catch(next);
 });
 
 // SHOW MESSAGES
-router.get('/messages', middlewares.requireUser, (req, res, next) => {
+router.get('/messages', middlewares.notLogged, middlewares.requireUser, (req, res, next) => {
   // const user = req.session.currentUser;
 
   const recievedMessagesPromise = Message.find({ reciever: { $eq: ObjectId(req.session.currentUser._id) } })
@@ -68,39 +63,34 @@ router.get('/messages', middlewares.requireUser, (req, res, next) => {
       res.render('profile/messages', messageData);
       // .catch(next);
     })
-    .catch((error) => {
-      console.log('Error de promises', error);
-    });
+    .catch(next);
   // res.render('index');
 });
 
 // EDIT MY SPACES - HAY QUE CONTROLAR QUE SÓLO PUEDA ENTRAR USUARIO NOARTIST
 
-router.get('/space', middlewares.requireUser, (req, res, next) => {
+router.get('/space', middlewares.notLogged, middlewares.requireUser, (req, res, next) => {
   // const user = req.session.currentUser;
 
   Space.find({ owner: { $eq: ObjectId(req.session.currentUser._id) } })
     // .populate('sender');
     .then((space) => {
-      console.log(space);
+      // console.log(space);
       res.render('profile/editspace', { space: space });
     })
     .catch(next);
 });
 
-router.post('/space', (req, res) => {
+router.post('/space', (req, res, next) => {
   const profile = req.body;
 
   console.log(profile);
   Space.findByIdAndUpdate(profile.id, profile)
     .then((result) => {
-      console.log(result);
+      // console.log(result);
       res.redirect('/profile');
     })
-    .catch((error) => {
-      console.log(error);
-      res.render('error');
-    });
+    .catch(next);
 });
 
 module.exports = router;
