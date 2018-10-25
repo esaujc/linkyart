@@ -9,7 +9,9 @@ const middlewares = require('../middlewares/middlewares');
 
 // const idArtist = ObjectId('5bcb8cdb8e835b5fa1ebab7a'); // user12
 
-router.get('/', middlewares.notLogged, middlewares.requireUser, (req, res, next) => {
+router.use(middlewares.isLoggedIn);
+
+router.get('/', (req, res, next) => {
   const user = req.session.currentUser;
 
   User.findById(user._id)
@@ -20,7 +22,7 @@ router.get('/', middlewares.notLogged, middlewares.requireUser, (req, res, next)
 });
 
 // EDIT PROFILE
-router.get('/edit', middlewares.notLogged, middlewares.requireUser, (req, res, next) => {
+router.get('/edit', (req, res, next) => {
   const user = req.session.currentUser;
 
   // User.findById(user._id)
@@ -44,7 +46,7 @@ router.post('/edit', (req, res, next) => {
 });
 
 // SHOW MESSAGES
-router.get('/messages', middlewares.notLogged, middlewares.requireUser, (req, res, next) => {
+router.get('/messages', (req, res, next) => {
   // const user = req.session.currentUser;
 
   const recievedMessagesPromise = Message.find({ reciever: { $eq: ObjectId(req.session.currentUser._id) } })
@@ -69,7 +71,7 @@ router.get('/messages', middlewares.notLogged, middlewares.requireUser, (req, re
 
 // EDIT MY SPACES - HAY QUE CONTROLAR QUE SÓLO PUEDA ENTRAR USUARIO NOARTIST
 
-router.get('/space', middlewares.notLogged, middlewares.requireUser, (req, res, next) => {
+router.get('/space', (req, res, next) => {
   // const user = req.session.currentUser;
 
   Space.find({ owner: { $eq: ObjectId(req.session.currentUser._id) } })

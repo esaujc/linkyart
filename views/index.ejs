@@ -1,14 +1,33 @@
 <div class="container">
   <div class="picture-exhibitors pics container">
-    <h2>Looking for an Exhibitor</h2>
-    <h3>We Art the world!</h3>
+    <div class="linkyart backplate-index">
+      <h4>Looking for an Exhibitor to expose your artwork?</h4>
+      <h3>We Art the world!</h3>
+      <div class="button-box">
+        <% if (!currentUser) { %>
+          <a href="/auth/login" class="button">Connect</a>
+        <% } else if (!currentUser.is_artist) { %>
+          <a href="/artists" class="button">Connect</a>
+        <% } else if (currentUser.is_artist) { %>
+          <a href="/spaces" class="button">Connect</a>
+        <% } %>
+      </div>
+      <%- include('partials/notifications') %>
+    </div>
   </div>
   <div class="picture-artists pics container"> 
-    <h2>Looking for an Artist?</h2>
-    <h3>We Art the world!</h3>
-  </div>
-
-  <div class="linkyart backplate">
-    <%- include('partials/notifications') %>
+    <div class="linkyart backplate-index">
+      <h4>Looking for Artists at your Exhibition?</h4>
+      <h3>Get in contact right now!</h3>
+      <div class="button-box">
+        <% if (!currentUser) { %>
+          <a href="/auth/login" class="button">Connect</a>
+        <% } else if (!currentUser.is_artist) { %>
+          <a href="/artists" class="button">Connect</a>
+        <% } else if (currentUser.is_artist) { %>
+          <a href="/spaces" class="button">Connect</a>
+        <% } %>
+      </div>
+    </div>
   </div>
 </div>

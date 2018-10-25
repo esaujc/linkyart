@@ -1,12 +1,17 @@
-
-<form action="/profile/space" method="post">
-<h1>Spaces</h1>
-  <label><b>Name:</b> </label> <input type="text" size="20" name="name" value="<%= space[0].name %>" required><br/><br/>
-  <label><b>Contact Name:</b> </label> <input type="text" size="20" name="contactName" value="<%= space[0].contactName %>" required><br/><br/>
-  <label><b>Email:</b> </label> <input type="email" size="20" name="email" value="<%= space[0].email %>" required><br/><br/>
-  <label><b>Telephone :</b> </label> <input type="number" size="20" name="telephone" value="<%= space[0].telephone %>" required><br/><br/>
-  <label><b>Homepage:</b> </label> <input type="url" size="30" name="homepage" value="<%= space[0].homepage %>" required><br/><br/>
-  <label><b>Image:</b> </label> <input type="url"  name="image" value="<%= space[0].image %>" required><br/><br/>
-  <input type="hidden" name="id" value="<%= space[0]._id %>"><br/><br/>
-  <input type="submit" value="Update">
-</form>
+<div class="pics">
+  <div class="signup-h">
+    <h3>Exhibition space</h3>
+  </div>
+  <div class="list backplate">
+    <form class="profile-form" action="/profile/space" method="post">
+      <label><b>Name:</b> </label> <input class="font-awesome rounded" type="text" size="20" name="name" value="<%= space[0].name %>" required>
+      <label><b>Contact Name:</b> </label> <input class="font-awesome rounded" type="text" size="20" name="contactName" value="<%= space[0].contactName %>" required>
+      <label><b>Email:</b> </label> <input class="font-awesome rounded" type="email" size="20" name="email" value="<%= space[0].email %>" required>
+      <label><b>Telephone :</b> </label> <input class="font-awesome rounded" type="number" size="20" name="telephone" value="<%= space[0].telephone %>" required>
+      <label><b>Homepage:</b> </label> <input class="font-awesome rounded" type="url" size="30" name="homepage" value="<%= space[0].homepage %>" required>
+      <label><b>Image:</b> </label> <input class="font-awesome rounded" type="url"  name="image" value="<%= space[0].image %>" required>
+      <input type="hidden" name="id" value="<%= space[0]._id %>">
+      <input class="button" type="submit" value="Update">
+    </form>
+  </div>
+</div>

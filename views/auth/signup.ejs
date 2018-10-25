@@ -4,15 +4,15 @@
 <div class="signup backplate">
   <form class="signup-form" action="/auth/signup" method='post'>
     <div><label for="username"></label>
-    <input class="font-awesome" type='text' size="20" name="username" placeholder="&#xf007; &nbsp; Username" required></div>
+    <input class="font-awesome rounded" type='text' size="20" name="username" placeholder="&#xf007; &nbsp; Username" required></div>
     <div><label for="password"></label>
-    <input class="font-awesome" type='password' size="20" name="password" placeholder="&#xf13e; &nbsp; Password" required></div>
-    <div><label for="is_artist">Artist: </label>
+    <input class="font-awesome rounded" type='password' size="20" name="password" placeholder="&#xf13e; &nbsp; Password" required></div>
+    <div class="radio"><label for="is_artist">Artist: </label>
     <input type="radio" id="artist" name="is_artist" value="true" required></div>
-    <div><label for="space-owner">Space owner: </label>
+    <div class="radio"><label for="space-owner">Spaceowner: </label>
     <input type="radio" id="space-owner" name="is_artist" value="false"></div>
     <input class="button" type="submit" value="send">
   </form>
-  If you already have an account, <a class="login-link" href="/auth/login">log in here.</a>
+  <p>If you already have an account, <a class="login-link" href="/auth/login">log in here.</a></p>
   <%- include('../partials/notifications') %>
 </div>

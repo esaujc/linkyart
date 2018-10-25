@@ -13,8 +13,11 @@
         </ul>
         <a href="<%= currentUser.homepage %>">Your homepage</a>
       </div>
-      <div>
+      <div class="button-box">
         <a href="/profile/edit" class="button">Edit</a>
+        <% if (!currentUser.is_artist) { %>
+        <a href="/profile/space" class="button artists">My spaces</a>
+        <% } %>
       </div>
     </div>
   </div>
@@ -24,7 +27,7 @@
       <h3>Your messages</h3>
     </div>
     <div class="backplate">
-    <div class="icons"><i class="far fa-comment fa-4x"></i></div>
+    <div class="icons"><i class="far fa-comment fa-2x"></i></div>
       <p>You can follow your requests and answers from your Messages portal.</p>
       <div>
         <a href="/profile/messages" class="button">Messages</a>
@@ -42,9 +45,10 @@
     </div>
     <div class="backplate">
       <% if (currentUser.is_artist) { %>
-        <div class="icons"><i class="far fa-eye fa-4x"></i></div>
+        <div class="icons"><i class="far fa-eye fa-2x"></i></div>
         <p>Visit our list of available Exhibitors. From here you can easily send them requests for further contact.</p>
       <% } else { %>
+        <div class="icons"><i class="far fa-grin fa-2x"></i></div>
         <p>Visit our list of professional Artists. From here you can easiy send them requests for further contact.</p>
       <% } %>
       <div class="profile">
@@ -52,7 +56,6 @@
           <a href="/spaces" class="button spaces">Exhibitors</a>
         <% } else { %>
           <a href="/artists" class="button artists">Artists</a>
-          <a href="/profile/space" class="button artists">My spaces</a>
         <% } %>
       </div>
     </div>

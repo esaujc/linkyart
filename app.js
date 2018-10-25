@@ -7,6 +7,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const expressLayouts = require('express-ejs-layouts');
 const flash = require('connect-flash');
+const middlewares = require('./middlewares/middlewares');
 
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
@@ -49,24 +50,24 @@ app.use(session({
     maxAge: 24 * 60 * 60 * 1000
   }
 }));
+
 app.use((req, res, next) => {
   app.locals.currentUser = req.session.currentUser;
   res.locals.currentUser = req.session.currentUser;
+  res.locals.isActive = (urlToMatch) => {
+    return urlToMatch === req.originalUrl ? 'active' : null;
+  };
   next();
 });
 
 app.use(flash());
 
+app.use(middlewares.notifications);
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/profile', profileRouter);
 app.use('/artists', artistsRouter);
 app.use('/spaces', spacesRouter);
-
-//   // render the error page
-//   res.status(err.status || 500);
-//   res.render('error');
-// });
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

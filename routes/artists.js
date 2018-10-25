@@ -10,7 +10,7 @@ const ObjectId = mongoose.Types.ObjectId;
 const createError = require('http-errors');
 
 /* GET index home page */
-router.get('/', middlewares.notLogged, middlewares.alreadyLoggedInArtist, (req, res, next) => {
+router.get('/', middlewares.isLoggedIn, middlewares.isLoggedInArtist, (req, res, next) => {
   User.find({ is_artist: { $eq: true } })
     .then(users => {
       res.render('artists/list', { users });
@@ -18,7 +18,7 @@ router.get('/', middlewares.notLogged, middlewares.alreadyLoggedInArtist, (req, 
     .catch(next);
 });
 
-router.get('/:id', middlewares.notIdValid, middlewares.notifications, middlewares.alreadyLoggedInArtist, middlewares.userExists, (req, res, next) => {
+router.get('/:id', middlewares.notIdValid, middlewares.isLoggedIn, middlewares.isLoggedInArtist, middlewares.userExists, (req, res, next) => {
   const idUser = req.params.id;
   const user = req.session.currentUser;
 
@@ -40,7 +40,7 @@ router.get('/:id', middlewares.notIdValid, middlewares.notifications, middleware
   }
 });
 
-router.post('/:id', middlewares.alreadyLoggedInArtist, middlewares.userExists, (req, res, next) => {
+router.post('/:id', middlewares.isLoggedIn, middlewares.isLoggedInArtist, (req, res, next) => {
   const user = req.session.currentUser;
 
   const idArtist = ObjectId(req.params.id);

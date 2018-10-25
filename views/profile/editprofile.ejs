@@ -1,21 +1,22 @@
-
-<form action="/profile/edit" method="post">
-<% if (currentUser.is_artist) {%>
-  <h1>User Artist</h1>
-  <label><b>Name:</b> </label> <input type="text" size="20" name="name" value="<%= user.name %>" required><br/><br/>
-  <label><b>Email:</b> </label> <input type="email" size="20" name="email" value="<%= user.email %>" required><br/><br/>
-  <label><b>Telephone :</b> </label> <input type="number" size="20" name="telephone" value="<%= user.telephone %>" required><br/><br/>
-  <label><b>Homepage:</b> </label> <input type="url" size="30" name="homepage" value="<%= user.homepage %>" required><br/><br/>
-  <label><b>Image:</b> </label> <input type="url"  name="image" value="<%= user.image %>" required><br/><br/>
-<% } else {%>
-<h1>user Space</h1>
-  <label><b>Name:</b> </label> <input type="text" size="20" name="name" value="<%= user.name %>" required><br/><br/>
-  <label><b>Email:</b> </label> <input type="email" size="20" name="email" value="<%= user.email %>" required><br/><br/>
-  <label><b>Telephone :</b> </label> <input type="numeric" size="20" name="telephone" value="<%= user.telephone %>" required><br/><br/>
-  <label><b>Homepage:</b> </label> <input type="url" size="30" name="homepage" value="<%= user.homepage %>" required><br/><br/>
-<% }%>
-<input type="submit" value="Send">
-</form>
-
+<div class="signup-h">
+  <h3>Edit your profile</h3>
+</div>
+<div class="list backplate">
+  <form class="profile-form" action="/profile/edit" method="post">
+  <% if (currentUser.is_artist) {%>
+    <label><b>Name:</b> </label> <input class="font-awesome rounded" type="text" size="20" name="name" value="<%= user.name %>" required>
+    <label><b>Email:</b> </label> <input class="font-awesome rounded" type="email" size="20" name="email" value="<%= user.email %>" required>
+    <label><b>Telephone :</b> </label> <input class="font-awesome rounded" type="number" size="20" name="telephone" value="<%= user.telephone %>" required>
+    <label><b>Homepage:</b> </label> <input class="font-awesome rounded" type="url" size="30" name="homepage" value="<%= user.homepage %>" required>
+    <label><b>Image:</b> </label> <input class="font-awesome rounded" type="url"  name="image" value="<%= user.image %>" required>
+  <% } else {%>
+    <label><b>Name:</b> </label> <input class="font-awesome rounded" type="text" size="20" name="name" value="<%= user.name %>" required>
+    <label><b>Email:</b> </label> <input class="font-awesome rounded" type="email" size="20" name="email" value="<%= user.email %>" required>
+    <label><b>Telephone :</b> </label> <input class="font-awesome rounded" type="numeric" size="20" name="telephone" value="<%= user.telephone %>" required>
+    <label><b>Homepage:</b> </label> <input class="font-awesome rounded" type="url" size="30" name="homepage" value="<%= user.homepage %>" required>
+  <% }%>
+  <input class="button" type="submit" value="Update">
+  </form>
+</div>
 
 
