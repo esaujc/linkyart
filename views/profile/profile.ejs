@@ -13,10 +13,20 @@
         </ul>
         <a href="<%= edituser.homepage %>" target="_blank">Your homepage</a>
       </div>
-      <div class="button-box">
-        <a href="/profile/edit" class="button">Edit</a>
+      <% if (!currentUser.is_artist) { %>
+        <div class="button-box">
+      <% } else { %>
+        <div>
+      <% } %>
+        <div class="button-edit">
+        <strong>Your profile:</strong>
+          <a href="/profile/edit" class="button">Edit</a>
+          </div>
         <% if (!currentUser.is_artist) { %>
-        <a href="/profile/space" class="button artists">My spaces</a>
+        <div class="button-edit">
+          <strong>Your spaces:</strong>
+          <a href="/profile/space" class="button artists">Edit</a>
+        </div>
         <% } %>
       </div>
     </div>

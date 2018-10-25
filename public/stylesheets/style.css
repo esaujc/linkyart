@@ -138,6 +138,7 @@ p {
 
   nav.navbar {
     padding: 0 50px;
+    z-index: 20;
   }
 
   img.logo {
@@ -256,6 +257,17 @@ p {
 
 .button-box p {
   padding: 3px;
+}
+
+.button-box a {
+  padding: 13px !important;
+}
+
+.button-edit {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 15px;
 }
 
 i {
