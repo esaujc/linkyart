@@ -3,12 +3,12 @@
 </div>
 <div class="login backplate">
   <form class="signup-form" action="/auth/login" method='post'>
-    <div><label for="username"></label>
-    <input class="font-awesome" type='text' size="20" name="username" placeholder="&#xf007; &nbsp; Username" required /></div>
+    <div><label class="radio-label" for="username"></label>
+    <input class="font-awesome rounded" type='text' size="20" name="username" placeholder="&#xf007; &nbsp; Username" required /></div>
     <div><label for="password"></label>
-    <input class="font-awesome" type='password' size="20" name="password" placeholder="&#xf13e; &nbsp; Password" required /></div>
+    <input class="font-awesome rounded" type='password' size="20" name="password" placeholder="&#xf13e; &nbsp; Password" required /></div>
     <input class="button" type="submit" value="send">
   </form>
-  If you have not signed up yet, <a class="login-link" href="/auth/signup">sign up here.</a>
+  <p>If you have not signed up yet, <a class="login-link" href="/auth/signup">sign up here.</a></p>
   <%- include('../partials/notifications') %>
 </div>

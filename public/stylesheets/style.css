@@ -60,6 +60,7 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 }
 
 .section {
@@ -70,7 +71,7 @@ p {
 
 @media (max-width: 768px) {
   body {
-    padding-top: 110px;
+    padding-top: 115px;
   }
 
   .container {
@@ -86,6 +87,7 @@ p {
 
   nav.navbar {
     padding: 0 20px;
+    z-index: 20;
   }
 
   ul.signup-and-login {
@@ -218,6 +220,10 @@ p {
   border: none;
 }
 
+.cursor {
+  cursor: pointer;
+}
+
 .user-name {
   padding: 5px;
 }
@@ -230,6 +236,17 @@ p {
   padding: 10px;
   margin-bottom: 20px;
   width: 300px;
+}
+
+.backplate-index {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+  border-style: none;
+  padding: 20px;
+  margin-bottom: 20px;
+  margin-top: 80px;
+  width: 300px;
+  text-align: center;
 }
 
 .button-box {
@@ -247,6 +264,13 @@ i {
   border-radius: 50%;
   padding: 20px;
   box-shadow: 0 0 20px grey;
+}
+
+.rounded {
+  border-radius: 30px;
+  border: none;
+  background-color: lightgrey;
+  width: 250px;
 }
 
 /* ---- alerts ---- */
@@ -315,7 +339,7 @@ div.navbar-div {
   text-decoration: none;
 }
 
-.btn:hover {
+.btn:hover, .active {
   background-color: rgba(173, 151, 222, 0.3);
 }
 
@@ -362,6 +386,16 @@ ul.signup-and-login {
   padding: 10px;
   width: 300px;
   border-radius: 10px 10px 0 0;
+  margin-top: 20px;
+}
+
+input[type="radio"] {
+  margin-left: 10px;
+}
+
+.radio {
+  display: flex;
+  margin-left: 15px;
 }
 
 /* ---- login form ---- */
@@ -369,7 +403,7 @@ ul.signup-and-login {
 input.font-awesome {
   font-family: 'Minion Pro', FontAwesome, Arial, sans-serif;
   font-size: 0.8rem;
-  padding: 5px;
+  padding: 15px;
   margin-left: 10px;
 }
 
@@ -412,6 +446,23 @@ input.font-awesome {
   height: 200px;
   border: 1px solid #323230;
   overflow: hidden;
+}
+
+/* ---- profile ---- */
+form.profile-form b {
+  margin: 15px;
+}
+
+.profile-form .rounded {
+  margin-bottom: 15px;
+}
+
+.profile-image ul li {
+  list-style-type: none;
+}
+
+.profile-image ul {
+  padding-left: 15px;
 }
 
 /* ---- footer ---- */

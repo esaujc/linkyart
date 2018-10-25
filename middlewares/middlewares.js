@@ -1,6 +1,7 @@
 const User = require('../Models/User');
 
 function requireFields (req, res, next) {
+  // checkFieldsLogin
   const user = req.body;
   const url = req.originalUrl;
   if (!user.username || !user.password) {
@@ -26,17 +27,6 @@ function userExists (req, res, next) {
     });
 }
 
-function requireUser (req, res, next) {
-  const user = req.body;
-
-  if (!user) {
-    req.flash('error', 'You should log in first.');
-    return res.redirect('/auth/login');
-  } else {
-    next();
-  }
-}
-
 function alreadyLoggedIn (req, res, next) {
   if (req.session.currentUser) {
     return res.redirect('/profile');
@@ -55,32 +45,23 @@ function notifications (req, res, next) {
   next();
 };
 
-function alreadyLoggedInArtist (req, res, next) {
-  if ((req.session.currentUser) && (req.session.currentUser.is_artist === true)) {
+function isLoggedInArtist (req, res, next) {
+  if (req.session.currentUser.is_artist === true) {
     return res.redirect('/profile');
   } else {
     next();
   }
 };
 
-function alreadyLoggedInNotArtist (req, res, next) {
-  if ((req.session.currentUser) && (req.session.currentUser.is_artist === false)) {
+function isLoggedInNotArtist (req, res, next) {
+  if (req.session.currentUser.is_artist === false) {
     return res.redirect('/profile');
   } else {
     next();
   }
 };
 
-// function alreadyRequested (req, res, next) {
-//   if (currentUser.requestSend) {
-//     req.flash('error', 'Request already send to this artist.');
-//     return res.redirect('/spaces');
-//   } else {
-//     next();
-//   }
-// }
-
-function notLogged (req, res, next) {
+function isLoggedIn (req, res, next) {
   if (!req.session.currentUser) {
     req.flash('error', 'You should log in first.');
     return res.redirect('/auth/login');
@@ -104,40 +85,14 @@ function notIdValid (req, res, next) {
     .catch(next);
 };
 
-// function notIdValidLoggedIn (req, res, next) {
-//   const user = req.body;
-
-//   if (req.session.currentUser._id.match(/^[0-9a-fA-F]{24}$/)) {
-//     // Yes, it's a valid ObjectId, proceed with `findById` call.
-//     req.flash('error', 'User not found');
-//     next();
-//   } else {
-//     return res.redirect('/auth/login');
-//   }
-//   //   // req.flash('error', 'User not found');
-//   // }
-//   // User.findById(user._id)
-//   //   .then(user => {
-//   //     console.log('Entra');
-//   //     if (!user) {
-//   //       // req.flash('error', 'User not found');
-//   //       return res.redirect('/auth/login');
-//   //     } else {
-//   //       next();
-//   //     }
-//   //   })
-//   //   .catch(next);
-// };
-
 module.exports = {
   requireFields,
   userExists,
-  requireUser,
   alreadyLoggedIn,
   notifications,
-  alreadyLoggedInArtist,
-  alreadyLoggedInNotArtist,
-  notLogged,
+  isLoggedInArtist,
+  isLoggedInNotArtist,
+  isLoggedIn,
   notIdValid
   // notIdValidLoggedIn
   // alreadyRequested

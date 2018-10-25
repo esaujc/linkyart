@@ -13,7 +13,7 @@ router.get('/', function (req, res, next) {
 });
 
 /* GET login page */
-router.get('/login', middlewares.notifications, middlewares.alreadyLoggedIn, (req, res, next) => {
+router.get('/login', middlewares.alreadyLoggedIn, (req, res, next) => {
   res.render('auth/login');
 });
 
@@ -44,7 +44,7 @@ router.post('/login', middlewares.requireFields, (req, res, next) => {
 });
 
 /* GET signup page */
-router.get('/signup', middlewares.notifications, middlewares.alreadyLoggedIn, (req, res, next) => {
+router.get('/signup', middlewares.alreadyLoggedIn, (req, res, next) => {
   res.render('auth/signup');
 });
 
@@ -67,7 +67,7 @@ router.post('/signup', middlewares.requireFields, middlewares.userExists, (req, 
     });
 });
 
-router.post('/logout', middlewares.requireUser, (req, res, next) => {
+router.post('/logout', middlewares.isLoggedIn, (req, res, next) => {
   delete req.session.currentUser;
   req.flash('info', 'Welcome back soon!');
   res.redirect('/');

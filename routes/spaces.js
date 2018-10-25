@@ -9,7 +9,7 @@ const formatDate = require('../public/javascript/main');
 const ObjectId = mongoose.Types.ObjectId;
 
 /* GET index home page */
-router.get('/', middlewares.notLogged, middlewares.alreadyLoggedInNotArtist, (req, res, next) => {
+router.get('/', middlewares.isLoggedIn, middlewares.isLoggedInNotArtist, (req, res, next) => {
   Space.find()
     .then(spaces => {
       return res.render('spaces/list', { spaces });
@@ -17,7 +17,7 @@ router.get('/', middlewares.notLogged, middlewares.alreadyLoggedInNotArtist, (re
     .catch(next);
 });
 
-router.get('/:id', middlewares.notLogged, middlewares.notifications, middlewares.alreadyLoggedInNotArtist, (req, res, next) => {
+router.get('/:id', middlewares.isLoggedIn, middlewares.isLoggedInNotArtist, (req, res, next) => {
   const idSpace = req.params.id;
 
   if (!ObjectId.isValid(idSpace)) {
@@ -34,7 +34,7 @@ router.get('/:id', middlewares.notLogged, middlewares.notifications, middlewares
     .catch(next);
 });
 
-router.post('/:id', middlewares.notifications, middlewares.userExists, middlewares.alreadyLoggedInNotArtist, (req, res, next) => {
+router.post('/:id', middlewares.isLoggedIn, middlewares.isLoggedInNotArtist, (req, res, next) => {
   const user = req.session.currentUser;
 
   const idSpace = ObjectId(req.params.id);
