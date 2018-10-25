@@ -12,7 +12,7 @@ const hashedPassword = bcrypt.hashSync('1234', salt);
 const users = [
   {
     is_artist: true,
-    username: 'Artist01',
+    username: 'kotaro',
     password: hashedPassword,
     name: 'Kotaro Fukui',
     email: 'info@kotaro-f.com',
@@ -22,7 +22,7 @@ const users = [
   },
   {
     is_artist: true,
-    username: 'Artist02',
+    username: 'acosta',
     password: hashedPassword,
     name: 'Acosta Gustavo',
     email: 'info@gustavoacosta.com',
@@ -32,7 +32,7 @@ const users = [
   },
   {
     is_artist: true,
-    username: 'Artist03',
+    username: 'himoru',
     password: hashedPassword,
     name: 'Hiromu Arakawa',
     email: 'fullmetal@viz.com',
@@ -42,7 +42,7 @@ const users = [
   },
   {
     is_artist: true,
-    username: 'Artist04',
+    username: 'raul',
     password: hashedPassword,
     name: 'Raul Cote',
     email: 'raul@godzilla.com',
@@ -52,7 +52,7 @@ const users = [
   },
   {
     is_artist: true,
-    username: 'Artist05',
+    username: 'nadja',
     password: hashedPassword,
     name: 'Nadja Verena',
     email: 'nvmstudio@gmail.com',
@@ -62,11 +62,11 @@ const users = [
   },
   {
     is_artist: true,
-    username: 'Artist06',
+    username: 'john',
     password: hashedPassword,
     name: 'John A. Parks',
     email: 'johnaparks@msn.com',
-    telephone: '917701 3338',
+    telephone: '9177013338',
     homepage: 'http://www.johnaparks.com/parks.html',
     image: 'http://www.johnaparks.com/alex.jpg'
   }
