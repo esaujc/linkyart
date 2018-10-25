@@ -1,17 +1,19 @@
-<div class="signup-h">
-  <h3><%= space.name %></h3>
-</div>
-<div class="backplate">
-  <div class="overflow">
-    <img class="spaces-img" src="<%= space.image %>" />
-    <p><%= space.contactName %></p>
-    <p><%= space.homepage %></p>
-    <div class="button-box">
-      <form action="/spaces/<%= space._id %>" method="post">
-        <button class="button" type="submit">Send a Request</button>
-      </form>
-      <a href="/spaces" class="button">Go back</a>
-    </div>
+<div class="box">
+  <div class="signup-h">
+    <h3><%= space.name %></h3>
   </div>
-  <%- include('../partials/notifications') %>
+  <div class="backplate">
+    <div>
+      <img class="spaces-img" src="<%= space.image %>" />
+      <p><%= space.contactName %></p>
+      <a href="<%= space.homepage %>">Visit homepage</a>
+      <div class="button-box">
+        <form action="/spaces/<%= space._id %>" method="post">
+          <button class="button" type="submit">Request</button>
+        </form>
+        <a href="/spaces" class="button">Go back</a>
+      </div>
+    </div>
+    <%- include('../partials/notifications') %>
+  </div>
 </div>

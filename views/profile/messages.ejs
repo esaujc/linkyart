@@ -1,6 +1,6 @@
 <h1>Messages</h1>
 <div class="sender-receiver">
-  <div class="senders-div overflow">
+  <div class="senders-div">
     <div class="signup-h">
       <h3>Requests Sent</h3>
     </div>
@@ -11,7 +11,7 @@
             <% if (message.reciever !== null) { %>
             <p><%= message.reciever.username %> </p>
             <p><%= message.reciever.name %> </p>  
-            <p><%= message.reciever.homepage %> </p>  
+            <a href="<%= message.reciever.homepage %>">Visit homepage</a>  
           <% } %>
             <hr/>
           <% })%> 
@@ -20,7 +20,7 @@
     </div>
   </div>
 
-  <div class="receivers-div overflow">
+  <div class="receivers-div">
     <div class="signup-h">
       <h3>Requests Recieved</h3>
     </div>
@@ -32,7 +32,7 @@
             <p> <%= message.sender.name %> </p>
             <p> <%= message.sender.email %> </p>
             <p> <%= message.sender.telephone %> </p>
-            <p> <%= message.sender.homepage %> </p>
+            <a href="<%= message.sender.homepage %>">Visit homepage</p>
             <hr/>
           <% })%> 
         <% } %>

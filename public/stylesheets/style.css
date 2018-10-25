@@ -28,8 +28,6 @@ body {
   font-family: 'Minion Pro', Arial, sans-serif;
   font-size: 16px;
   line-height: 147%;
-  background-image: url('#');
-  background-repeat: none;
 }
 
 h1 {
@@ -72,7 +70,7 @@ p {
 
 @media (max-width: 768px) {
   body {
-    padding-top: 120px;
+    padding-top: 110px;
   }
 
   .container {
@@ -110,15 +108,29 @@ p {
   .spaces {
     margin: 10px;
   }
+
+  .picture-exhibitors {
+    height: 400px;
+    width: 100%;
+  }
+  
+  .picture-artists {
+    height: 400px;
+    width: 100%;
+  }
+
+  .box {
+    padding-top: 20px;
+  }
 }
 
 @media (min-width: 768px) {
   body {
-    padding-top: 170px;
+    padding-top: 130px;
   }
 
   .container {
-    max-width: 728px;
+    width: 728px;
     margin: 0 auto;
   }
 
@@ -156,6 +168,20 @@ p {
 
   .spaces {
     margin: 10px;
+  }
+
+  .picture-exhibitors {
+    height: 400px;
+    width: 100%;
+  }
+  
+  .picture-artists {
+    height: 400px;
+    width: 100%;
+  }
+
+  .box {
+    padding-top: 50px;
   }
 }
 
@@ -202,7 +228,25 @@ p {
   border-radius: 0 0 10px 10px;
   border-style: none;
   padding: 10px;
+  margin-bottom: 20px;
   width: 300px;
+}
+
+.button-box {
+  display: flex;
+  justify-content: center;
+}
+
+.button-box p {
+  padding: 3px;
+}
+
+i {
+  color:#71f1fb;
+  border: 5px solid #71f1fb;
+  border-radius: 50%;
+  padding: 20px;
+  box-shadow: 0 0 20px grey;
 }
 
 /* ---- alerts ---- */
@@ -271,6 +315,10 @@ div.navbar-div {
   text-decoration: none;
 }
 
+.btn:hover {
+  background-color: rgba(173, 151, 222, 0.3);
+}
+
 ul.signup-and-login {
   display: flex;
   list-style-type: none;
@@ -284,6 +332,18 @@ ul.signup-and-login {
 
 .signup-and-login li a:hover {
   color: #71f1fb;
+}
+
+/* ---- index ---- */
+
+.picture-exhibitors {
+  background-image: url('/images/art_business.jpg');
+  background-size: cover;
+}
+
+.picture-artists {
+  background-image: url('/images/sickles-events-593.jpg');
+  background-size: cover;
 }
 
 /* ---- signup form ---- */
@@ -320,15 +380,30 @@ input.font-awesome {
   align-items: center;
 }
 
-/* ---- messages ---- */
-
-.overlow {
-  overflow: scroll;
+.signup-h h3 {
+  padding: 10px;
 }
+
+.backplate p, .backplate a {
+  padding: 10px;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* ---- messages ---- */
 
 .wrap {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+}
+
+.wrap-div {
+  margin: 10px;
 }
 
 /* ---- spaces ---- */

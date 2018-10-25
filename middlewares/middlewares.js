@@ -79,5 +79,4 @@ module.exports = {
   notifications,
   alreadyLoggedInArtist,
   alreadyLoggedInNotArtist
-  // alreadyRequested
 };

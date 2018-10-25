@@ -21,13 +21,13 @@
   <% if (currentUser) { %>
     <div class="nav-bar-div">
       <ul class="nav-bar">
-        <a href="/"><li>Home</li></a>
-        <a href="/profile"><li>Profile</li></a>
-        <a href="/profile/messages"><li>Messages</li></a>
+        <a href="/" class="btn"><li>Home</li></a>
+        <a href="/profile" class="btn"><li>Profile</li></a>
+        <a href="/profile/messages" class="btn"><li>Messages</li></a>
         <% if (currentUser.is_artist) { %>
-          <a href="/spaces"><li>Spaces</li></a>
+          <a href="/spaces" class="btn"><li>Spaces</li></a>
         <% } else { %>
-          <a href="/artists"><li>Artists</li></a>
+          <a href="/artists" class="btn"><li>Artists</li></a>
         <% } %>
       </ul>
     </div>

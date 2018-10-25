@@ -9,7 +9,7 @@
         <div class="overflow">
           <img class="spaces-img" src="<%= user.image %>" />
           <p><%= user.username %></p>
-          <p><%= user.homepage %></p>
+          <a href="<%= user.homepage %>">Visit homepage</a>
           <a href="/artists/<%= user._id %>"><button class="button">See more</button></a>
         </div>
       </div>
