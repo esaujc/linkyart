@@ -11,7 +11,7 @@
             <% if (message.reciever !== null) { %>
             <p><%= message.reciever.username %> </p>
             <p><%= message.reciever.name %> </p>  
-            <a href="<%= message.reciever.homepage %>">Visit homepage</a>  
+            <a href="<%= message.reciever.homepage %>" target="_blank">Visit homepage</a>  
           <% } %>
             <hr/>
           <% })%> 
@@ -28,14 +28,15 @@
       <div class="receiver">
         <% if (recivers !== null)  { %>
           <% recivers.forEach((message) => { %>
-            <p><%= message.sender.username %> </p>
-            <p> <%= message.sender.name %> </p>
-            <p> <%= message.sender.email %> </p>
-            <p> <%= message.sender.telephone %> </p>
-            <a href="<%= message.sender.homepage %>">Visit homepage</p>
+            <div><%= message.sender.username %> </div>
+            <div> <%= message.sender.name %> </div>
+            <div> <%= message.sender.email %> </div>
+            <div> <%= message.sender.telephone %> </div>
+            <a href="<%= message.sender.homepage %>" target="_blank">Visit homepage</a>
             <hr/>
           <% })%> 
         <% } %>
+      
       </div>
     </div>
   </div>

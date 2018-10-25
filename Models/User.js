@@ -10,7 +10,7 @@ const userSchema = new Schema({
   email: String,
   telephone: String,
   homepage: String,
-  image: String
+  image: { type: String, default: 'http://www.vincegolangco.com/wp-content/uploads/2010/12/batman-for-facebook.jpg' }
 });
 
 const User = mongoose.model('User', userSchema);

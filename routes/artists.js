@@ -13,7 +13,7 @@ const createError = require('http-errors');
 router.get('/', middlewares.notLogged, middlewares.alreadyLoggedInArtist, (req, res, next) => {
   User.find({ is_artist: { $eq: true } })
     .then(users => {
-      res.render('artists/list', { users });
+      return res.render('artists/list', { users });
     })
     .catch(next);
 });
@@ -33,7 +33,7 @@ router.get('/:id', middlewares.notIdValid, middlewares.notifications, middleware
           const err = createError(404, 'This user does not exist');
           next(err);
         } else {
-          res.render('artists/detail', { user: user });
+          return res.render('artists/detail', { user: user });
         }
       })
       .catch(next);

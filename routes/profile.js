@@ -7,14 +7,12 @@ const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
 const middlewares = require('../middlewares/middlewares');
 
-// const idArtist = ObjectId('5bcb8cdb8e835b5fa1ebab7a'); // user12
-
 router.get('/', middlewares.notLogged, middlewares.requireUser, (req, res, next) => {
   const user = req.session.currentUser;
 
   User.findById(user._id)
-    .then(() => {
-      res.render('profile/profile');
+    .then((edituser) => {
+      return res.render('profile/profile', { edituser });
     })
     .catch(next);
 });
@@ -23,10 +21,9 @@ router.get('/', middlewares.notLogged, middlewares.requireUser, (req, res, next)
 router.get('/edit', middlewares.notLogged, middlewares.requireUser, (req, res, next) => {
   const user = req.session.currentUser;
 
-  // User.findById(user._id)
   User.findById(user._id)
     .then((edituser) => {
-      res.render('profile/editprofile', { user: edituser });
+      return res.render('profile/editprofile', { user: edituser });
     })
     .catch(next);
 });
@@ -37,8 +34,7 @@ router.post('/edit', (req, res, next) => {
 
   User.findByIdAndUpdate(id, profile)
     .then((result) => {
-      // console.log(result);
-      res.redirect('/profile');
+      return res.redirect('/profile');
     })
     .catch(next);
 });
@@ -51,20 +47,30 @@ router.get('/messages', middlewares.notLogged, middlewares.requireUser, (req, re
     .populate('sender');
   const sentMessagesPromise = Message.find({ sender: { $eq: ObjectId(req.session.currentUser._id) } })
     .populate('reciever');
+  // const spaceMessagesPromise = Message.find({ sender: { $eq: ObjectId(req.session.currentUser._id) } })
+  //   .populate('spaceToRent');
+  // const space2MessagesPromise = Message.find({ sender: { $eq: ObjectId(req.session.currentUser._id) } })
+  //   .populate('reciever')
+  //   .populate('spaceToRent');
+
+  // const space2MessagesPromise = Message.find({ reciever: { $eq: ObjectId(req.session.currentUser._id) } })
+  //   .populate('spaceToRent');
   Promise.all([recievedMessagesPromise, sentMessagesPromise])
-    // .then(({ receivedMessages, sentMessages }) => {
-  // receivedMessages.forEach(recieve => {
+  // Promise.all([recievedMessagesPromise, sentMessagesPromise, spaceMessagesPromise, space2MessagesPromise])
     .then((messages) => {
+      // const [recivers, senders, spaces, spaces2] = messages;
       const [recivers, senders] = messages;
+      // console.log('spaces: ', spaces);
+      // console.log('spaces2: ', spaces2);
       const messageData = {
         senders,
         recivers
+        // space,
+        // spaces2
       };
-      res.render('profile/messages', messageData);
-      // .catch(next);
+      return res.render('profile/messages', messageData);
     })
     .catch(next);
-  // res.render('index');
 });
 
 // EDIT MY SPACES - HAY QUE CONTROLAR QUE SÓLO PUEDA ENTRAR USUARIO NOARTIST
@@ -73,10 +79,8 @@ router.get('/space', middlewares.notLogged, middlewares.requireUser, (req, res, 
   // const user = req.session.currentUser;
 
   Space.find({ owner: { $eq: ObjectId(req.session.currentUser._id) } })
-    // .populate('sender');
     .then((space) => {
-      // console.log(space);
-      res.render('profile/editspace', { space: space });
+      return res.render('profile/editspace', { space: space });
     })
     .catch(next);
 });
@@ -84,11 +88,9 @@ router.get('/space', middlewares.notLogged, middlewares.requireUser, (req, res, 
 router.post('/space', (req, res, next) => {
   const profile = req.body;
 
-  console.log(profile);
   Space.findByIdAndUpdate(profile.id, profile)
     .then((result) => {
-      // console.log(result);
-      res.redirect('/profile');
+      return res.redirect('/profile');
     })
     .catch(next);
 });

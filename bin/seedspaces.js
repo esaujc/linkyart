@@ -7,58 +7,58 @@ require('dotenv').config();
 const spaces = [
   {
     owner: ObjectId('111111111111111111111111'), // User01
-    name: 'Linky Art Gallery',
-    contactName: 'Frank',
-    email: 'frank@lag.com',
-    telephone: '123456',
-    homepage: 'https://github.com/esaujc/linkyart',
-    image: 'http://scgallery.es/administracion/wp-content/uploads/2018/05/sebasvelasco-smithe-anna-taratiel-axel-void-eltono-deih-remed-scgallery.jpg'
+    name: '532 THOMAS JAECKEL',
+    contactName: 'Lien Truong',
+    email: 'info@532gallery.com ',
+    telephone: '32003765850',
+    homepage: 'http://www.532gallery.com',
+    image: 'https://asimg.artsolution.net/tsmedia/532532photo/532%20Gallery%20Thomas%20Jaeckel3132018T134027.296.jpg?ftr=10&qlt=75&cell=500,500&cvt=jpeg'
   },
   {
     owner: ObjectId('111111111111111111111111'), // User02
-    name: 'Ron Gallery',
-    contactName: 'Ron',
-    email: 'ron@ron-gallery.com',
-    telephone: '123456',
-    homepage: 'https://github.com/esaujc/linkyart',
-    image: 'https://design-milk.com/images/2010/11/falkenberg-2.jpg'
+    name: 'CYNTHIA CORBETT',
+    contactName: 'Deborah Azzopardi',
+    email: 'info@thecynthiacorbettgallery.com',
+    telephone: '442089476782',
+    homepage: 'www.thecynthiacorbettgallery.com',
+    image: 'https://asimg.artsolution.net/tsmedia/CorbettCynphoto/Corbett1932015T195114.jpg?ftr=10&qlt=75&cell=500,500&cvt=jpeg'
 
   },
   {
     owner: ObjectId('111111111111111111111111'), // User03
-    name: 'Linky Art Restaurant',
-    contactName: 'Lorel',
-    email: 'lorel@lagrest.com',
-    telephone: '123456',
+    name: 'CANTOR FINE ART',
+    contactName: 'Andrew Myers',
+    email: 'ljc@cantorfineart.com ',
+    telephone: '7003765850',
     homepage: 'https://github.com/esaujc/linkyart',
     image: 'https://www.plataformadeartecontemporaneo.com/pac/wp-content/uploads/2018/01/REMED-SER-ENTRE-SEMILLA-Y-CENIZA-62-466x311.jpg'
   },
   {
     owner: ObjectId('111111111111111111111111'), // User04
-    name: 'Mart Art Gallery',
-    contactName: 'Marco',
-    email: 'marco@lag.com',
-    telephone: '123456',
-    homepage: 'https://github.com/esaujc/linkyart',
-    image: 'https://www.plataformadeartecontemporaneo.com/pac/wp-content/uploads/2018/01/REMED-SER-ENTRE-SEMILLA-Y-CENIZA-62-466x311.jpg'
+    name: 'MARK HACHEM',
+    contactName: 'Mark Hachem',
+    email: 'paris@markhachem.com',
+    telephone: '33142769493',
+    homepage: 'http://www.markhachem.com',
+    image: 'http://www.markhachem.com/images/Contact_1.jpg'
   },
   {
     owner: ObjectId('111111111111111111111111'), // User05
-    name: 'Mat Gallery',
-    contactName: 'Mat',
-    email: 'mat@math-gallery.com',
-    telephone: '123456',
-    homepage: 'https://github.com/esaujc/linkyart',
-    image: 'https://www.plataformadeartecontemporaneo.com/pac/wp-content/uploads/2018/01/REMED-SER-ENTRE-SEMILLA-Y-CENIZA-62-466x311.jpg'
+    name: 'IPRECIATION',
+    contactName: 'Dongling Wang',
+    email: 'enquiry@ipreciation.com',
+    telephone: '6563390678',
+    homepage: 'http://www.ipreciation.com ',
+    image: 'https://asimg.artsolution.net/tsmedia/ipreciationiPrphoto/ipreciation932018T105510.5.jpg?ftr=10&qlt=75&cell=500,500&cvt=jpeg'
   },
   {
     owner: ObjectId('111111111111111111111111'), // User06
-    name: 'Gallery Jarl',
-    contactName: 'Oliver',
-    email: 'oliver@ljarlgallery.com',
-    telephone: '123456',
-    homepage: 'https://github.com/esaujc/linkyart',
-    image: 'https://poncerobles.com/es/img/temporadas/13_1.jpg'
+    name: 'SHINSEIDO',
+    contactName: 'Minami Aoyama',
+    email: 'art@shinseido.com',
+    telephone: '81334988383',
+    homepage: 'http://www.shinseido.com',
+    image: 'https://asimg.artsolution.net/tsmedia/SHINSEIDOSHIphoto/SHINSEIDO632018T111746.263.jpg?ftr=10&qlt=75&cell=500,500&cvt=jpeg'
   }
 ];
 

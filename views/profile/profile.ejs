@@ -5,13 +5,13 @@
     </div>
     <div class="backplate profile-back">  
       <div class="profile-image">
-        <img class="spaces-img" src="<%= currentUser.image %>" />
+        <img class="spaces-img" src="<%= edituser.image %>" />
         <ul>
-          <li><%= currentUser.name %></li>
-          <li><%= currentUser.email %></li>
-          <li><%= currentUser.telephone %></li>
+          <li><%= edituser.name %></li>
+          <li><%= edituser.email %></li>
+          <li><%= edituser.telephone %></li>
         </ul>
-        <a href="<%= currentUser.homepage %>">Your homepage</a>
+        <a href="<%= edituser.homepage %>" target="_blank">Your homepage</a>
       </div>
       <div>
         <a href="/profile/edit" class="button">Edit</a>
@@ -34,21 +34,21 @@
 
   <div class="wrap-div">
     <div class="signup-h">
-      <% if (currentUser.is_artist) { %>
+      <% if (edituser.is_artist) { %>
         <h3>Exhibitors</h3>
       <% } else { %>
         <h3>Artists</h3>
       <% } %>
     </div>
     <div class="backplate">
-      <% if (currentUser.is_artist) { %>
+      <% if (edituser.is_artist) { %>
         <div class="icons"><i class="far fa-eye fa-4x"></i></div>
         <p>Visit our list of available Exhibitors. From here you can easily send them requests for further contact.</p>
       <% } else { %>
         <p>Visit our list of professional Artists. From here you can easiy send them requests for further contact.</p>
       <% } %>
       <div class="profile">
-        <% if (currentUser.is_artist) { %>
+        <% if (edituser.is_artist) { %>
           <a href="/spaces" class="button spaces">Exhibitors</a>
         <% } else { %>
           <a href="/artists" class="button artists">Artists</a>

@@ -8,21 +8,13 @@ const mongoose = require('mongoose');
 const formatDate = require('../public/javascript/main');
 const ObjectId = mongoose.Types.ObjectId;
 
-// Formato de la fecha yyyy/mm/dd
-// const dateObj = new Date();
-// const month = dateObj.getUTCMonth() + 1; // months from 1-12
-// const day = dateObj.getUTCDate();
-// const year = dateObj.getUTCFullYear();
-// const newdate = year + '/' + month + '/' + day;
-
 /* GET index home page */
 router.get('/', middlewares.notLogged, middlewares.alreadyLoggedInNotArtist, (req, res, next) => {
   Space.find()
     .then(spaces => {
-      res.render('spaces/list', { spaces });
+      return res.render('spaces/list', { spaces });
     })
     .catch(next);
-  // res.render('index');
 });
 
 router.get('/:id', middlewares.notLogged, middlewares.notifications, middlewares.alreadyLoggedInNotArtist, (req, res, next) => {
@@ -37,7 +29,7 @@ router.get('/:id', middlewares.notLogged, middlewares.notifications, middlewares
       if (!space) {
         return next();
       }
-      res.render('spaces/detail', { space: space });
+      return res.render('spaces/detail', { space: space });
     })
     .catch(next);
 });
@@ -48,7 +40,6 @@ router.post('/:id', middlewares.notifications, middlewares.userExists, middlewar
   const idSpace = ObjectId(req.params.id);
   let idNonArtist;
   const idArtist = ObjectId(user._id);
-  // const idArtist = ObjectId(user._id); //
 
   User.findById(user)
     .then(() => {
