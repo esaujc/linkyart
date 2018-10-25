@@ -16,24 +16,30 @@ const ObjectId = mongoose.Types.ObjectId;
 // const newdate = year + '/' + month + '/' + day;
 
 /* GET index home page */
-router.get('/', middlewares.alreadyLoggedInNotArtist, (req, res, next) => {
+router.get('/', middlewares.notLogged, middlewares.alreadyLoggedInNotArtist, (req, res, next) => {
   Space.find()
     .then(spaces => {
       res.render('spaces/list', { spaces });
     })
-    .catch((error) => {
-      console.log(error);
-    });
+    .catch(next);
   // res.render('index');
 });
 
-router.get('/:id', middlewares.notifications, middlewares.alreadyLoggedInNotArtist, (req, res, next) => {
+router.get('/:id', middlewares.notLogged, middlewares.notifications, middlewares.alreadyLoggedInNotArtist, (req, res, next) => {
   const idSpace = req.params.id;
+
+  if (!ObjectId.isValid(idSpace)) {
+    return next();
+  }
 
   Space.findById(idSpace)
     .then((space) => {
+      if (!space) {
+        return next();
+      }
       res.render('spaces/detail', { space: space });
-    });
+    })
+    .catch(next);
 });
 
 router.post('/:id', middlewares.notifications, middlewares.userExists, middlewares.alreadyLoggedInNotArtist, (req, res, next) => {
