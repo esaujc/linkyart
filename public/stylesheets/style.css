@@ -285,6 +285,14 @@ i {
   width: 250px;
 }
 
+.fix {
+  padding-left: 10px;
+}
+
+.fixx {
+  padding-top: 30px;
+}
+
 /* ---- alerts ---- */
 
 .alert-danger {

@@ -8,8 +8,8 @@
         <% if (senders !== null) { %>
           <% senders.forEach((message) => { %>
             <% if (message.reciever !== null) { %>
-            <p><%= message.reciever.username %> </p>
-            <p><%= message.reciever.name %> </p>  
+            <div><%= message.reciever.username %> </div>
+            <div><%= message.reciever.name %> </div>
             <a href="<%= message.reciever.homepage %>" target="_blank">Visit homepage</a>  
           <% } %>
             <hr/>

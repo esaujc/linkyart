@@ -7,8 +7,11 @@
       <div class="backplate">
         <div>
           <img class="spaces-img" src="<%= space.image %>" />
-          <p><%= space.contactName %></p>
-          <a href="<%= space.homepage %>" target="_blank">Visit homepage</a>
+          <div class="fixx">
+            <div class="fix"><%= space.name %></div>
+            <div class="fix"><%= space.contactName %></div>
+            <a href="<%= space.homepage %>" target="_blank">Visit homepage</a>
+          </div>
           <a href="/spaces/<%= space._id %>"><button class="button">See more</button></a>
         </div>
       </div>

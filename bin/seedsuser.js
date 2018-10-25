@@ -12,7 +12,7 @@ const hashedPassword = bcrypt.hashSync('1234', salt);
 const users = [
   {
     is_artist: false,
-    username: 'noArtist01',
+    username: 'kamelm',
     password: hashedPassword,
     name: 'Kamel Mennour',
     email: 'info@kamelmennour.com',
@@ -22,7 +22,7 @@ const users = [
   },
   {
     is_artist: false,
-    username: 'noArtist02',
+    username: 'thadro',
     password: hashedPassword,
     name: 'Thaddaeus Ropac',
     email: 'info@ropac.net',
@@ -32,7 +32,7 @@ const users = [
   },
   {
     is_artist: false,
-    username: 'noArtist03',
+    username: 'lien',
     password: hashedPassword,
     name: 'Lien Truong',
     email: 'info@lientruong',
@@ -42,7 +42,7 @@ const users = [
   },
   {
     is_artist: false,
-    username: 'noArtist04',
+    username: 'sadie',
     password: hashedPassword,
     name: 'Sadie Coles',
     email: 'info@sadiecoles.com',
@@ -52,7 +52,7 @@ const users = [
   },
   {
     is_artist: false,
-    username: 'noArtist05',
+    username: 'massimo',
     password: hashedPassword,
     name: 'Massimo de Carlo',
     email: 'milano@massimodecarlo.com',
@@ -62,7 +62,7 @@ const users = [
   },
   {
     is_artist: false,
-    username: 'noArtist06',
+    username: 'elba',
     password: hashedPassword,
     name: 'Elba Benítez',
     email: 'info@elbabenitez.com',
