@@ -7,7 +7,8 @@
       <div class="backplate">
         <div>
           <img class="spaces-img" src="<%= user.image %>" />
-          <p><%= user.username %></p>
+          <div><%= user.username %></div>
+          <div><%= user.name %></div>
           <a href="<%= user.homepage %>" target="_blank">Visit homepage</a>
           <a href="/artists/<%= user._id %>"><button class="button">See more</button></a>
         </div>

@@ -5,8 +5,9 @@
   <div class="backplate">
     <div class="overflow">
       <img class="spaces-img" src="<%= user.image %>" />
-      <p><%= user.username %></p>
-      <a href="<%= user.homepage %>" target="_blank"><p>Visit homepage</p></a>
+      <div><%= user.username %></div>
+      <div><%= user.name %></div>
+      <a href="<%= user.homepage %>" target="_blank">Visit homepage</a>
       <div class="button-box">
         <form action="/artists/<%= user._id %>" method="post">
           <button class="button" type="submit"><p>Request</p></button>

@@ -5,7 +5,8 @@
   <div class="backplate">
     <div>
       <img class="spaces-img" src="<%= space.image %>" />
-      <p><%= space.contactName %></p>
+      <div><%= space.name %></div>
+      <div><%= space.contactName %></div>
       <a href="<%= space.homepage %>" target="_blank">Visit homepage</a>
       <div class="button-box">
         <form action="/spaces/<%= space._id %>" method="post">
