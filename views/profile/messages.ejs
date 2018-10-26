@@ -8,12 +8,14 @@
         <% if (senders !== null) { %>
           <% senders.forEach((message) => { %>
             <% if (message.reciever !== null) { %>
-            <div><%= message.reciever.username %> </div>
-            <div><%= message.reciever.name %> </div>
-            <a href="<%= message.reciever.homepage %>" target="_blank">Visit homepage</a>  
-          <% } %>
+              <div class="fixx">
+                <div class="fix"><%= message.reciever.username %> </div>
+                <div class="fix"><%= message.reciever.name %> </div>
+                <a href="<%= message.reciever.homepage %>" target="_blank">Visit homepage</a>
+              </div>
+            <% } %>
             <hr/>
-          <% })%> 
+          <% }) %> 
         <% } %>
       </div>
     </div>
@@ -27,11 +29,13 @@
       <div class="receiver">
         <% if (recivers !== null)  { %>
           <% recivers.forEach((message) => { %>
-            <div><%= message.sender.username %> </div>
-            <div> <%= message.sender.name %> </div>
-            <div> <%= message.sender.email %> </div>
-            <div> <%= message.sender.telephone %> </div>
-            <a href="<%= message.sender.homepage %>" target="_blank">Visit homepage</a>
+            <div class="fixx">
+              <div class="fix"><%= message.sender.username %> </div>
+              <div class="fix"> <%= message.sender.name %> </div>
+              <div class="fix"> <%= message.sender.email %> </div>
+              <div class="fix"> <%= message.sender.telephone %> </div>
+              <a href="<%= message.sender.homepage %>" target="_blank">Visit homepage</a>
+            </div>
             <hr/>
           <% })%> 
         <% } %>
