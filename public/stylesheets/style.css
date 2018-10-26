@@ -138,6 +138,7 @@ p {
 
   nav.navbar {
     padding: 0 50px;
+    z-index: 20;
   }
 
   img.logo {
@@ -258,6 +259,17 @@ p {
   padding: 3px;
 }
 
+.button-box a {
+  padding: 13px !important;
+}
+
+.button-edit {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 15px;
+}
+
 i {
   color:#71f1fb;
   border: 5px solid #71f1fb;
@@ -271,6 +283,14 @@ i {
   border: none;
   background-color: lightgrey;
   width: 250px;
+}
+
+.fix {
+  padding-left: 10px;
+}
+
+.fixx {
+  padding-top: 30px;
 }
 
 /* ---- alerts ---- */

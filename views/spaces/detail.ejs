@@ -5,9 +5,11 @@
   <div class="backplate">
     <div>
       <img class="spaces-img" src="<%= space.image %>" />
-      <div><%= space.name %></div>
-      <div><%= space.contactName %></div>
-      <a href="<%= space.homepage %>" target="_blank">Visit homepage</a>
+      <div class="fixx">
+        <div class="fix"><%= space.name %></div>
+        <div class="fix"><%= space.contactName %></div>
+        <a href="<%= space.homepage %>" target="_blank">Visit homepage</a>
+      </div>
       <div class="button-box">
         <form action="/spaces/<%= space._id %>" method="post">
           <button class="button" type="submit">Request</button>

@@ -3,14 +3,16 @@
     <h3><%= user.name %></h3>
   </div>
   <div class="backplate">
-    <div class="overflow">
+    <div>
       <img class="spaces-img" src="<%= user.image %>" />
-      <div><%= user.username %></div>
-      <div><%= user.name %></div>
-      <a href="<%= user.homepage %>" target="_blank">Visit homepage</a>
+      <div class="fixx">
+        <div class="fix"><%= user.username %></div>
+        <div class="fix"><%= user.name %></div>
+        <a href="<%= user.homepage %>" target="_blank">Visit homepage</a>
+      </div>
       <div class="button-box">
         <form action="/artists/<%= user._id %>" method="post">
-          <button class="button" type="submit"><p>Request</p></button>
+          <button class="button" type="submit">Request</button>
         </form>
         <a href="/artists" class="button">Go back</a>
       </div>

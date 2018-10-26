@@ -1,15 +1,17 @@
-<div class="spaces-div overflow">
+<div class="spaces-div">
   <% spaces.forEach(space => { %>
     <div class="spaces">
       <div class="signup-h">
         <h3><%= space.name %></h3>
       </div>
       <div class="backplate">
-        <div class="overflow">
+        <div>
           <img class="spaces-img" src="<%= space.image %>" />
-          <div><%= space.name %></div>
-          <div><%= space.contactName %></div>
-          <a href="<%= space.homepage %>" target="_blank">Visit homepage</a>
+          <div class="fixx">
+            <div class="fix"><%= space.name %></div>
+            <div class="fix"><%= space.contactName %></div>
+            <a href="<%= space.homepage %>" target="_blank">Visit homepage</a>
+          </div>
           <a href="/spaces/<%= space._id %>"><button class="button">See more</button></a>
         </div>
       </div>
