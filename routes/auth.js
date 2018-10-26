@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 const User = require('../Models/User');
+const Space = require('../Models/Space');
+const mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId;
 const middlewares = require('../middlewares/middlewares');
 
 // npm install bcrypt
@@ -60,6 +63,18 @@ router.post('/signup', middlewares.requireFields, middlewares.userExists, (req, 
   User.create(user)
     .then((user) => {
       req.session.currentUser = user;
+      const space = [
+        {
+          owner: ObjectId(user._id),
+          name: '',
+          contactName: '',
+          email: '',
+          telephone: '',
+          homepage: '',
+          image: '/images/no_space.png'
+        }
+      ];
+      Space.create(space);
       return res.redirect('/profile');
     })
     .catch((error) => {

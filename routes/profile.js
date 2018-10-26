@@ -70,7 +70,7 @@ router.get('/messages', (req, res, next) => {
       .populate('reciever');
     const spaceSenderMessagesPromise = Message.find({ sender: user._id })
       .populate('spaceToRent');
-    const spaceRecieverMessagesPromise = Message.find({ sender: user._id })
+    const spaceRecieverMessagesPromise = Message.find({ reciever: user._id })
       .populate('spaceToRent');
 
     Promise.all([recievedMessagesPromise, sentMessagesPromise, spaceSenderMessagesPromise, spaceRecieverMessagesPromise])
