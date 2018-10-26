@@ -18,7 +18,7 @@ const users = [
     email: 'info@kamelmennour.com',
     telephone: '33156240363',
     homepage: 'http://www.kamelmennour.com/',
-    img: 'http://metro.paris/uploads/media/place_poster/0001/01/thumb_299_place_poster_article.jpeg'
+    image: '/images/users/kamelm_profile.jpeg'
   },
   {
     is_artist: false,
@@ -28,7 +28,7 @@ const users = [
     email: 'info@ropac.net',
     telephone: '436655443322',
     homepage: 'https://www.ropac.net/',
-    img: 'http://the-talks.com/wp-content/uploads/2015/02/Thaddaeus-Ropac-02.jpg'
+    image: '/images/users/thadro_profile.jpg'
   },
   {
     is_artist: false,
@@ -38,7 +38,7 @@ const users = [
     email: 'info@lientruong',
     telephone: '463458901',
     homepage: 'https://www.lientruong.com/',
-    image: 'https://static.wixstatic.com/media/720b89_0c02f545bf4c4719ab52c7d45204bdc6~mv2.jpg/v1/fill/w_948,h_703,al_c,q_85,usm_0.66_1.00_0.01/720b89_0c02f545bf4c4719ab52c7d45204bdc6~mv2.webp'
+    image: '/images/users/lien_profile.webp'
   },
   {
     is_artist: false,
@@ -48,7 +48,7 @@ const users = [
     email: 'info@sadiecoles.com',
     telephone: '442074938611',
     homepage: 'https://www.sadiecoles.com/',
-    img: 'http://www.6a.co.uk/img/YnhjbEpiVmh0TjVxRW5VVnQ1WDU3UT09/sadie-coleshq-6a-jd-13.jpg'
+    image: '/images/users/sadie_profile.jpg'
   },
   {
     is_artist: false,
@@ -58,7 +58,7 @@ const users = [
     email: 'milano@massimodecarlo.com',
     telephone: '390270003987',
     homepage: 'http://www.massimodecarlo.com/',
-    img: 'http://butterboom.com/wp-content/uploads/2016/02/massimodecarlo_butterboom.jpg'
+    image: '/images/users/massimo_profile.jpg'
   },
   {
     is_artist: false,
@@ -68,7 +68,7 @@ const users = [
     email: 'info@elbabenitez.com',
     telephone: '34913080468',
     homepage: 'http://www.elbabenitez.com/',
-    img: 'https://res.cloudinary.com/dqzqcuqf9/image/fetch/w_600,f_auto,q_auto:good,dpr_1.0,ar_1.6,c_fill,g_auto/https://d2u3kfwd92fzu7.cloudfront.net/catalog/gallery/1124/profiles/EB_Exterior.jpg'
+    image: '/images/users/elba_profile.webp'
   }
 
 ];

@@ -18,7 +18,7 @@ const users = [
     email: 'info@kotaro-f.com',
     telephone: '812345654',
     homepage: 'http://www.kotaro-f.com/profile/index_e.html',
-    image: 'http://www.kotaro-f.com/profile/images/kotaro_photo.jpg'
+    image: '/images/users/kotaro_profile.jpg'
   },
   {
     is_artist: true,
@@ -28,7 +28,7 @@ const users = [
     email: 'info@gustavoacosta.com',
     telephone: '6655443322',
     homepage: 'https://www.gustavoacosta.com/',
-    image: 'https://www.gustavoacosta.com/uploads/8/1/6/6/81666230/published/img-4866.jpeg?1514145623'
+    image: '/images/users/acosta_profile.jpeg'
   },
   {
     is_artist: true,
@@ -38,7 +38,7 @@ const users = [
     email: 'fullmetal@viz.com',
     telephone: '815639834',
     homepage: 'https://www.viz.com/fullmetal-alchemist',
-    image: 'https://dw9to29mmj727.cloudfront.net/promo/2016/5352-SeriesHeaders_Tier01_FMAv2_2000x800.jpg'
+    image: '/images/users/himoru_profile.jpg'
   },
   {
     is_artist: true,
@@ -48,7 +48,7 @@ const users = [
     email: 'raul@godzilla.com',
     telephone: '34654883301',
     homepage: 'https://raulcote.github.io/go-go-godzilla/',
-    img: 'https://vignette.wikia.nocookie.net/headhuntersholosuite/images/8/89/Atomic_breath.jpg/revision/latest?cb=20140923005559'
+    image: '/images/raul_profile.jpg'
   },
   {
     is_artist: true,
@@ -58,7 +58,7 @@ const users = [
     email: 'nvmstudio@gmail.com',
     telephone: '49224036177',
     homepage: 'http://www.nadjamarcin.de/',
-    image: 'http://www.nadjamarcin.de/public/images/photography/jedi1.jpg'
+    image: '/images/users/nadja_profile.jpg'
   },
   {
     is_artist: true,
@@ -68,7 +68,7 @@ const users = [
     email: 'johnaparks@msn.com',
     telephone: '9177013338',
     homepage: 'http://www.johnaparks.com/parks.html',
-    image: 'http://www.johnaparks.com/alex.jpg'
+    image: '/images/users/john_profile.jpg'
   }
 
 ];

@@ -12,7 +12,7 @@ const spaces = [
     email: 'info@532gallery.com ',
     telephone: '32003765850',
     homepage: 'http://www.532gallery.com',
-    image: 'https://asimg.artsolution.net/tsmedia/532532photo/532%20Gallery%20Thomas%20Jaeckel3132018T134027.296.jpg?ftr=10&qlt=75&cell=500,500&cvt=jpeg'
+    image: '/images/galleries/532_gallery.jpg'
   },
   {
     owner: ObjectId('111111111111111111111111'), // User02
@@ -21,7 +21,7 @@ const spaces = [
     email: 'info@thecynthiacorbettgallery.com',
     telephone: '442089476782',
     homepage: 'www.thecynthiacorbettgallery.com',
-    image: 'https://asimg.artsolution.net/tsmedia/CorbettCynphoto/Corbett1932015T195114.jpg?ftr=10&qlt=75&cell=500,500&cvt=jpeg'
+    image: '/images/galleries/corbet_gallery.jpg'
 
   },
   {
@@ -31,7 +31,7 @@ const spaces = [
     email: 'ljc@cantorfineart.com ',
     telephone: '7003765850',
     homepage: 'https://github.com/esaujc/linkyart',
-    image: 'https://www.plataformadeartecontemporaneo.com/pac/wp-content/uploads/2018/01/REMED-SER-ENTRE-SEMILLA-Y-CENIZA-62-466x311.jpg'
+    image: '/images/galleries/cantor_gallery.jpg'
   },
   {
     owner: ObjectId('111111111111111111111111'), // User04
@@ -40,7 +40,7 @@ const spaces = [
     email: 'paris@markhachem.com',
     telephone: '33142769493',
     homepage: 'http://www.markhachem.com',
-    image: 'http://www.markhachem.com/images/Contact_1.jpg'
+    image: '/images/galleries/mark_gallery.jpg'
   },
   {
     owner: ObjectId('111111111111111111111111'), // User05
@@ -49,7 +49,7 @@ const spaces = [
     email: 'enquiry@ipreciation.com',
     telephone: '6563390678',
     homepage: 'http://www.ipreciation.com ',
-    image: 'https://asimg.artsolution.net/tsmedia/ipreciationiPrphoto/ipreciation932018T105510.5.jpg?ftr=10&qlt=75&cell=500,500&cvt=jpeg'
+    image: '/images/galleries/ipreciation_gallery.jpg'
   },
   {
     owner: ObjectId('111111111111111111111111'), // User06
@@ -58,7 +58,7 @@ const spaces = [
     email: 'art@shinseido.com',
     telephone: '81334988383',
     homepage: 'http://www.shinseido.com',
-    image: 'https://asimg.artsolution.net/tsmedia/SHINSEIDOSHIphoto/SHINSEIDO632018T111746.263.jpg?ftr=10&qlt=75&cell=500,500&cvt=jpeg'
+    image: '/images/galleries/shinsheido_gallery.jpg'
   }
 ];
 
