@@ -5,16 +5,26 @@
     </div>
     <div class="backplate">
       <div class="senders">
+      <% let prueba = 0 %>
         <% if (senders !== null) { %>
-          <% senders.forEach((message) => { %>
+          <% senders.forEach((message, index) => { %>
             <% if (message.reciever !== null) { %>
-            <div><%= message.reciever.username %> </div>
-            <div><%= message.reciever.name %> </div>
-            <a href="<%= message.reciever.homepage %>" target="_blank">Visit homepage</a>  
+            <div><p><strong>User:</strong> </p></div>
+            <div class="fix"><%= message.reciever.username %></div>
+            <div class="fix"><%= message.reciever.name %></div>
+            <a href="<%= message.reciever.homepage %>" target="_blank">Visit homepage</a>
+                <% if (currentUser.is_artist === true) { %>
+                <%  prueba = 1 %>
+                <div><p><strong>Exibitor Space:</strong></p></div>
+                <div class="fix"><%= spacesender[index].spaceToRent.name %></div>
+                <div class="fix"> <%= spacesender[index].spaceToRent.contactName %></div>
+                <a href="<%= message.spaceToRent.homepage %>" target="_blank">Visit homepage</a>  
+                <% } %>  
           <% } %>
             <hr/>
           <% })%> 
         <% } %>
+       
       </div>
     </div>
   </div>
@@ -27,15 +37,29 @@
       <div class="receiver">
         <% if (recivers !== null)  { %>
           <% recivers.forEach((message) => { %>
-            <div><%= message.sender.username %> </div>
-            <div> <%= message.sender.name %> </div>
-            <div> <%= message.sender.email %> </div>
-            <div> <%= message.sender.telephone %> </div>
+            <div><p><strong>User:</strong></p></div>
+            <div class="fix"><%= message.sender.username %></div>
+            <div class="fix"><%= message.sender.name %></div>
+            <div class="fix"><%= message.sender.email %></div>
+            <div class="fix"> <%= message.sender.telephone %></div>
             <a href="<%= message.sender.homepage %>" target="_blank">Visit homepage</a>
             <hr/>
           <% })%> 
         <% } %>
       
+        <% if (currentUser.is_artist === true && prueba === 0) { %>
+          <% if (spacereciever !== null) { %>
+          <% spacereciever.forEach((message) => { %>
+            <% if (message.spaceToRent !== null) { %>
+            <div><%= message.spaceToRent.name %> </div>
+            <div><%= message.spaceToRent.contactName %> </div>
+            <div><%= message.spaceToRent.email %> </div>
+            <a href="<%= message.spaceToRent.homepage %>" target="_blank">Visit homepage</a>  
+          <% } %>
+            <hr/>
+          <% })%> 
+        <% } %>
+      <% } %>
       </div>
     </div>
   </div>

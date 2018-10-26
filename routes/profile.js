@@ -45,36 +45,47 @@ router.post('/edit', (req, res, next) => {
 
 // SHOW MESSAGES
 router.get('/messages', (req, res, next) => {
-  // const user = req.session.currentUser;
+  const user = req.session.currentUser;
 
-  const recievedMessagesPromise = Message.find({ reciever: { $eq: ObjectId(req.session.currentUser._id) } })
-    .populate('sender');
-  const sentMessagesPromise = Message.find({ sender: { $eq: ObjectId(req.session.currentUser._id) } })
-    .populate('reciever');
-  // const spaceMessagesPromise = Message.find({ sender: { $eq: ObjectId(req.session.currentUser._id) } })
-  //   .populate('spaceToRent');
-  // const space2MessagesPromise = Message.find({ sender: { $eq: ObjectId(req.session.currentUser._id) } })
-  //   .populate('reciever')
-  //   .populate('spaceToRent');
+  if (user.is_artist === false) {
+    const recievedMessagesPromise = Message.find({ reciever: user._id })
+      .populate('sender');
+    const sentMessagesPromise = Message.find({ sender: user._id })
+      .populate('reciever');
+    Promise.all([recievedMessagesPromise, sentMessagesPromise])
+      .then((messages) => {
+        const [recivers, senders] = messages;
+        const messageData = {
+          senders,
+          recivers
+        };
+        return res.render('profile/messages', messageData);
+      })
+      .catch(next);
+  }
+  if (user.is_artist === true) {
+    const recievedMessagesPromise = Message.find({ reciever: user._id })
+      .populate('sender');
+    const sentMessagesPromise = Message.find({ sender: user._id })
+      .populate('reciever');
+    const spaceSenderMessagesPromise = Message.find({ sender: user._id })
+      .populate('spaceToRent');
+    const spaceRecieverMessagesPromise = Message.find({ sender: user._id })
+      .populate('spaceToRent');
 
-  // const space2MessagesPromise = Message.find({ reciever: { $eq: ObjectId(req.session.currentUser._id) } })
-  //   .populate('spaceToRent');
-  Promise.all([recievedMessagesPromise, sentMessagesPromise])
-  // Promise.all([recievedMessagesPromise, sentMessagesPromise, spaceMessagesPromise, space2MessagesPromise])
-    .then((messages) => {
-      // const [recivers, senders, spaces, spaces2] = messages;
-      const [recivers, senders] = messages;
-      // console.log('spaces: ', spaces);
-      // console.log('spaces2: ', spaces2);
-      const messageData = {
-        senders,
-        recivers
-        // space,
-        // spaces2
-      };
-      return res.render('profile/messages', messageData);
-    })
-    .catch(next);
+    Promise.all([recievedMessagesPromise, sentMessagesPromise, spaceSenderMessagesPromise, spaceRecieverMessagesPromise])
+      .then((messages) => {
+        const [recivers, senders, spacesender, spacereciever] = messages;
+        const messageData = {
+          senders,
+          recivers,
+          spacesender,
+          spacereciever
+        };
+        return res.render('profile/messages', messageData);
+      })
+      .catch(next);
+  }
 });
 
 // EDIT MY SPACES - HAY QUE CONTROLAR QUE SÓLO PUEDA ENTRAR USUARIO NOARTIST

@@ -62,7 +62,8 @@ router.post('/:id', middlewares.isLoggedIn, middlewares.isLoggedInArtist, (req, 
           } else {
             newMessage.save()
               .then(() => {
-                return res.redirect('/artists');
+                req.flash('info', 'Request send successfully!');
+                return res.redirect('/artists/' + idArtist);
               })
               .catch((error) => {
                 console.log(error);
